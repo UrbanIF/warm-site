@@ -11,10 +11,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
+gem 'devise-i18n'
 gem 'figaro', '>= 1.0.0.rc1'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'rails_admin', require: 'rails_admin', github: 'sferik/rails_admin'
+gem 'rails_admin-i18n', github: 'starchow/rails_admin-i18n'
 gem 'globalize', '~> 4.0.2'
 gem 'globalize-accessors'
 gem 'rails_admin_globalize_field'
