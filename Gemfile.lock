@@ -1,3 +1,22 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: bdccf9155fe29743d8868a6a622522f9eb774710
+  specs:
+    rails_admin (0.6.5)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (~> 3.0)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (>= 4.0, < 6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -35,7 +54,21 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bower-rails (0.7.3)
     builder (3.2.2)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+    cells (3.11.2)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
+      uber (~> 0.0.8)
+    chunky_png (1.3.2)
+    ckeditor (4.1.0)
+      mime-types
+      orm_adapter (~> 0.5.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -44,6 +77,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    compass (0.12.7)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.19)
+    compass-rails (1.1.7)
+      compass (>= 0.12.2)
+      sprockets (<= 2.11.0)
     daemons (1.1.9)
     debug_inspector (0.0.2)
     devise (3.4.0)
@@ -56,8 +96,18 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
+    faker (1.4.3)
+      i18n (~> 0.5)
     figaro (1.0.0)
       thor (~> 0.14)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
+    fssm (0.2.10)
+    globalize (4.0.2)
+      activemodel (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
+    globalize-accessors (0.1.5)
+      globalize (>= 3)
     haml (4.1.0.beta.1)
       tilt
     haml-rails (0.5.3)
@@ -81,15 +131,27 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.2)
+      railties (>= 3.2.16)
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.9.2)
+    libv8 (3.16.14.7)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile (0.6.0)
     minitest (5.4.2)
     multi_json (1.10.1)
+    mysql2 (0.3.16)
+    nested_form (0.3.2)
+    nokogiri (1.6.3.1)
+      mini_portile (= 0.6.0)
+    non-stupid-digest-assets (1.0.4)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
     pry (0.10.1)
@@ -104,6 +166,9 @@ GEM
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-pjax (0.8.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.5)
@@ -116,6 +181,10 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.5)
       sprockets-rails (~> 2.0)
+    rails_admin_globalize_field (0.3.1)
+      globalize (>= 4.0)
+      rails (>= 4.0)
+      rails_admin (>= 0.6.2)
     rails_layout (1.0.23)
     railties (4.1.5)
       actionpack (= 4.1.5)
@@ -126,10 +195,14 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    ref (1.0.5)
+    remotipart (1.2.1)
     responders (1.1.1)
       railties (>= 3.2, < 4.2)
+    rmagick (2.13.3)
     ruby_parser (3.1.3)
       sexp_processor (~> 4.1)
+    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -140,6 +213,8 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     sexp_processor (4.4.4)
+    simple-navigation (3.13.0)
+      activesupport (>= 2.3.2)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -155,6 +230,9 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.9)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -169,6 +247,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.9)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -185,24 +264,40 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bower-rails (~> 0.7.3)
+  carrierwave
+  cells
+  ckeditor
   coffee-rails (~> 4.0.0)
+  compass-rails (~> 1.1.2)
   devise
+  faker
   figaro (>= 1.0.0.rc1)
+  globalize (~> 4.0.2)
+  globalize-accessors
   haml-rails
   html2haml
   hub
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
+  mysql2
+  non-stupid-digest-assets
   pry-rails
   pry-rescue
   quiet_assets
   rails (= 4.1.5)
+  rails_admin!
+  rails_admin_globalize_field
   rails_layout
+  rmagick (~> 2.13.1)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  simple-navigation
   simple_form
   spring
   sqlite3
+  therubyracer
   thin
   turbolinks
   uglifier (>= 1.3.0)

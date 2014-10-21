@@ -11,7 +11,87 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021210149) do
+ActiveRecord::Schema.define(version: 20141021215757) do
+
+  create_table "news", force: true do |t|
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news_translations", force: true do |t|
+    t.integer  "news_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "short"
+    t.text     "body"
+  end
+
+  add_index "news_translations", ["locale"], name: "index_news_translations_on_locale"
+  add_index "news_translations", ["news_id"], name: "index_news_translations_on_news_id"
+
+  create_table "partner_translations", force: true do |t|
+    t.integer  "partner_id", null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "body"
+  end
+
+  add_index "partner_translations", ["locale"], name: "index_partner_translations_on_locale"
+  add_index "partner_translations", ["partner_id"], name: "index_partner_translations_on_partner_id"
+
+  create_table "partners", force: true do |t|
+    t.string   "logo_color"
+    t.string   "logo_black_and_white"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_translations", force: true do |t|
+    t.integer  "project_id", null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "short"
+    t.text     "body"
+  end
+
+  add_index "project_translations", ["locale"], name: "index_project_translations_on_locale"
+  add_index "project_translations", ["project_id"], name: "index_project_translations_on_project_id"
+
+  create_table "projects", force: true do |t|
+    t.string   "image"
+    t.string   "type"
+    t.boolean  "is_show"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "static_page_translations", force: true do |t|
+    t.integer  "static_page_id", null: false
+    t.string   "locale",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "vision_title"
+    t.text     "vision_text"
+    t.text     "values_text"
+    t.text     "tasks_text"
+  end
+
+  add_index "static_page_translations", ["locale"], name: "index_static_page_translations_on_locale"
+  add_index "static_page_translations", ["static_page_id"], name: "index_static_page_translations_on_static_page_id"
+
+  create_table "static_pages", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
