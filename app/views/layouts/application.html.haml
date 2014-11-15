@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title WarmSite
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header
+      = link_to root_path do
+        = image_tag 'logo.png', class: 'logo'
+      %nav
+        %ul
+          %li.title тепле місто
+          %li
+            %a{:href => "#"} Проекти
+          %li
+            %a{:href => "#"} про нас
+          %li
+            %a{:href => "partners.html"} партнери
+      = render 'layouts/lang_switcher'
+    = yield
