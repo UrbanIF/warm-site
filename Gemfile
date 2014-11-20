@@ -31,6 +31,7 @@ gem 'simple-navigation'
 gem 'kaminari'
 gem 'faker'
 gem 'cells'
+gem 'bourbon'
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
