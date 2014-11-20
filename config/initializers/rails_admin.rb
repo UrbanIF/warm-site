@@ -35,6 +35,8 @@ RailsAdmin.config do |config|
   config.included_models = %w(
 News
 News::Translation
+Publication
+Publication::Translation
 Partner
 Partner::Translation
 Project
@@ -48,9 +50,10 @@ User
   config.model 'News' do
     configure :translations, :globalize_tabs
     weight 1
+    field :image, :carrierwave
   end
 
-  [News, Partner, Project, StaticPage].each do |_model|
+  [Publication, Partner, Project, StaticPage].each do |_model|
     config.model _model do
       configure :translations, :globalize_tabs
     end
@@ -63,6 +66,14 @@ User
     end
     configure :body, :ck_editor
     include_fields :locale, :title, :short, :body
+  end
+
+  config.model 'Publication::Translation' do
+    visible false
+    configure :locale, :hidden do
+      help ''
+    end
+    include_fields :locale, :title, :source
   end
 
   config.model 'Partner::Translation' do

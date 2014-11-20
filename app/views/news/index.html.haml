@@ -1,0 +1,16 @@
+- content_for :body_class, "news"
+%section.news-list
+  - current_month = nil
+  - @news.each do |key, news_array|
+
+    .month
+      %h4= key
+      %ul
+        - news_array.each do |news|
+          %li
+            %time
+              = news.date.strftime('%d')
+              %span><= I18n.l news.date, format: '%b'
+            .short-news-item
+              = link_to news.title, news
+              %p= news.short

@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.1.3'
 gem 'rails', '4.1.5'
 gem 'sqlite3'
+gem 'groupdate'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -27,7 +28,6 @@ gem 'non-stupid-digest-assets'
 gem 'bower-rails', '~> 0.7.3'
 gem 'compass-rails', '~> 1.1.2'
 gem 'simple-navigation'
-gem 'mysql2'
 gem 'kaminari'
 gem 'faker'
 gem 'cells'
@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'thin'
+  gem "browserify-rails", "~> 0.4"
 end
 group :production do
   gem 'unicorn'

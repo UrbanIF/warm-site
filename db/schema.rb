@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021215757) do
+ActiveRecord::Schema.define(version: 20141120152812) do
 
   create_table "news", force: true do |t|
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "show_on_mine", default: true
+    t.date     "date"
   end
 
   create_table "news_translations", force: true do |t|
@@ -72,6 +74,26 @@ ActiveRecord::Schema.define(version: 20141021215757) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "publication_translations", force: true do |t|
+    t.integer  "publication_id", null: false
+    t.string   "locale",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "source"
+  end
+
+  add_index "publication_translations", ["locale"], name: "index_publication_translations_on_locale"
+  add_index "publication_translations", ["publication_id"], name: "index_publication_translations_on_publication_id"
+
+  create_table "publications", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "link"
+    t.string   "source_link"
+    t.date     "date"
   end
 
   create_table "static_page_translations", force: true do |t|

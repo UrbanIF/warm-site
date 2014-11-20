@@ -61,6 +61,8 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bower-rails (0.7.3)
+    browserify-rails (0.5.1)
+      sprockets (~> 2.0)
     builder (3.2.2)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -115,6 +117,8 @@ GEM
       activerecord (>= 4.0.0, < 5)
     globalize-accessors (0.1.5)
       globalize (>= 3)
+    groupdate (2.3.0)
+      activesupport (>= 3)
     haml (4.1.0.beta.1)
       tilt
     haml-rails (0.5.3)
@@ -154,7 +158,6 @@ GEM
     mini_portile (0.6.0)
     minitest (5.4.2)
     multi_json (1.10.1)
-    mysql2 (0.3.16)
     nested_form (0.3.2)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -272,6 +275,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bower-rails (~> 0.7.3)
+  browserify-rails (~> 0.4)
   carrierwave
   cells
   ckeditor
@@ -283,13 +287,13 @@ DEPENDENCIES
   figaro (>= 1.0.0.rc1)
   globalize (~> 4.0.2)
   globalize-accessors
+  groupdate
   haml-rails
   html2haml
   hub
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  mysql2
   non-stupid-digest-assets
   pry-rails
   pry-rescue

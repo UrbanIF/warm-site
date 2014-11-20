@@ -12,14 +12,25 @@ class ApplicationController < ActionController::Base
     {:locale => I18n.locale}
   end
 
+  private
+    def prepare_objects_dates(objects)
+      object_array = {}
+      objects.order_by_date.each do |object|
+        formated_date = I18n.l(object.date, format: '%B %Y')
+        object_array[formated_date] ||= []
+        object_array[formated_date] << object
+      end
+
+      object_array
+    end
 
   protected
 
-  def layout_by_resource
-    if devise_controller?
-      "application_device"
-    else
-      "application"
+    def layout_by_resource
+      if devise_controller?
+        "application_device"
+      else
+        "application"
+      end
     end
-  end
 end

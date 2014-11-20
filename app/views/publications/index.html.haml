@@ -1,0 +1,15 @@
+- content_for :body_class, "publications"
+%section.publications
+  - current_month = nil
+  - @publications.each do |key, publications_array|
+    .month
+      %h4= key
+      %ul
+        - publications_array.each do |publication|
+          %li
+            %time
+              = publication.date.strftime('%d')
+              %span><= I18n.l publication.date, format: '%b'
+            .short-publication-item
+              = link_to publication.title, publication.link
+              %p= link_to publication.source, publication.source_link

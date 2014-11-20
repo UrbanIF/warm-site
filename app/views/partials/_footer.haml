@@ -1,0 +1,23 @@
+%section.contacts
+  .container
+    .email
+      %span.icon>
+      info@warm.if.ua
+    .adress
+      %span.icon>
+      м. Івано-Франківськ, вул. Тринітарська 11, офіс 9
+    .socials
+      %a.twitter{:href => "https://twitter.com/WarmCityIF"}<
+        =image_tag('icon-twitter.png')
+
+      %a.facebook{:href => "https://www.facebook.com/warmifua"}<
+        =image_tag('icon-facebook.png')
+%section.footer
+  %span.made-in Made in Ivano-Frankivsk
+  %span.warm-city Warm-city 2014
+  %a.webmil{:href => "http://webmil.com.ua"}
+    =image_tag('webmil-logo.png')
+= javascript_include_tag "http://maps.googleapis.com/maps/api/js"
+= javascript_include_tag "http://f.vimeocdn.com/js/froogaloop2.min.js"
+= javascript_include_tag "http://w.sharethis.com/button/buttons.js"
+= javascript_include_tag 'application'

@@ -1,0 +1,132 @@
+.overlay.video-overlay
+  .center
+    %iframe#player{:allowfullscreen => "true", :frameborder => "0", :mozallowfullscreen => "true", :src => "//player.vimeo.com/video/94954902?title=0&byline=0&portrait=0&api=1&player_id=player", :webkitallowfullscreen => "true"}
+  .close
+.overlay.dialog-overlay.white
+  .center
+    #step1.steps.step1
+      .title
+        %p Обирай форму допомоги нам
+        .line
+      .left
+        %img.lamp{:alt => "lamp", :src => "/assets/lamp.png"}/
+        %h5
+          прогресивна компанія
+          %span.help{:title => "\"Тепле місто\" об’єднує людей і бізнеси, які підтримують ідеї та дії щодо сталого розвитку Івано-Франківська. Якщо ваша компанія є саме такою, ми пропонуємо два варіанти співпраці: <ul><li>Стати бізнес-партнером</li><li>Надати одноразову допомогу</li></ul>"}
+        %a.dialog-button.as-company{:href => "#step2c"} підтримати
+      .right
+        %img.transformer{:alt => "transformer", :src => "/assets/transformer.png"}/
+        %h5
+          прогресивна людина
+          %span.help{:title => "Ви - небайдужа, сучасна, проактивна людина? Ви любите це місто і хочете, аби воно стало ще кращим? Оберіть, що вам ближче:<ul><li>Стати членом ГО \"Тепле місто\"</li><li>Надати доброчинну допомогу</li><li>Придбати продукцію у стилі Івано-Франківська</li></ul>"}
+        %a.dialog-button.as-human{:href => "#step2"} підтримати
+    #step2.steps.step2
+      .title
+        %p допомогти
+        .line
+      .block.first.money
+        %img.diamond{:alt => "diamond", :src => "/assets/diamond.png"}/
+        %h5
+          Фондуй
+          %span.help{:title => "Ви поділяєте наші цінності і прагнете зробити Франківськ прогресивним сучасним містом? Тоді пропонуємо вам надати підтримку \"Теплому місту\", зробивши доброчинний внесок у зручний для вас спосіб. Ця можливість відкрита як для окремих людей, так і для цілих організацій. <ul> <li>Онлайн-платіж з банківської картки (coming soon)</li> <li>Переказ на розрахунковий рахунок</li></ul>"}
+        %p Ви поділяєте наші цінності і прагнете зробити Франківськ прогресивним сучасним містом? Тоді пропонуємо вам надати підтримку "Теплому місту", зробивши доброчинний внесок у зручний для вас спосіб
+        %a.dialog-button.give-money{:href => "#money-help"} підтримати
+      .block.second.member
+        %img.super{:alt => "super", :src => "/assets/super.png"}/
+        %h5
+          Стань учасником
+          %span.help{:title => "Долучайтесь до \"Теплого міста\", вступивши в громадську організацію. Отримайте можливість впливати на діяльність організації, пропонувати свої проекти, брати участь в загальних зборах, і відчувати особисту приналежність до прогресивних змін у нашому місті та Україні.<br/>Для членства в ГО \"Тепле місто\":<ul><li>Заповніть анкету, паперову або електронну</li><li>Сплатіть річний членський внесок в сумі 120 грн.</li></ul>Після цього ми підтвердимо ваше членство в ГО \"Тепле місто\" і розповімо про подальші події та можливості."}
+        %p Долучайтесь до "Теплого міста". вступивши в громадську організацію. Отримайте можливість впливати на діяльність організації, пропонувати свої проекти, брати участь в загальних зборах
+        %a.dialog-button.become-member{:href => "#form-people"} долучитись
+      .block.last.online-store.disabled
+        %h5 online store
+        %p Придбати продукцію з логотипом Івано-Франківська
+        %a.dialog-button coming soon
+    #step2c.steps.step2c
+      .title
+        %p допомоги нам як компанія
+        .line
+      .block.first.bp
+        %img.diamond{:alt => "diamond", :src => "/assets/diamond.png"}/
+        %h5
+          Стати бізнес партнером
+          %span.help{:title => "Підтримуючи прогресивний розвиток Івано-Франківська як бізнес-партнер, ви отримуєте:<ul><li>Участь в \"ТОП-50 прогресивних  компаній Івано-Франківська\" (кількість місць обмежена)</li> <li>Висвітлення на інформаційних ресурсах \"Теплого міста\"</li> <li>Присутність логотипу компанії в прес-релізах і на прес-конференціях, періодичне висвітлення в ЗМІ та на промо-матеріалах</li> <li>Запрошення на події, що організовує \"Тепле місто\"</li> <li>Щомісячний  звіт про діяльність \"Теплого міста\" </li> <li>Запрошення на щорічні урочисті збори \"Теплого міста\" </li> </ul>"}
+        %p Бізнес-партнер — це компанія, що системно сприяє "Теплому місту", здійснюючи фінансову підтримку або надаючи пакет професійних послуг.
+        %a.dialog-button.become-business-partner{:href => "#form-business"} долучитись
+      .block.second.mnh
+        %img.super{:alt => "super", :src => "/assets/super.png"}/
+        %h5
+          Надати доброчинну допомогу
+          %span.help{:title => "Ви поділяєте наші цінності і прагнете зробити Івано-Франківськ прогресивним сучасним містом? Тоді підтримайте \"Тепле місто\", зробивши доброчинний внесок у зручний для вас спосіб. Ця можливість відкрита як для окремих людей, так і для організацій. <ul> <li>Онлайн-платіж з банківської картки (coming soon)</li> <li>Переказ на розрахунковий рахунок</li></ul>"}
+        %p Підтримайте "Тепле місто", зробивши доброчинний внесок у зручний для вас спосіб.
+        %a.dialog-button.give-money{:href => "#money-help"} підтримати
+    #success-step.steps.success-step
+      %img.success{:alt => "success", :src => "/assets/success.png"}/
+      %h5 Дякуємо! Вашу заявку прийнято
+      %p очікуйте лист відповідь на пошту
+      %a.close-link{:href => "#"} закрити
+    #form-business.steps.form-business
+      .title
+        %p Стати бізнес-партнером
+        .line
+      %form.business{:action => "https://docs.google.com/forms/d/1JvAX7NRsJpw1-alSUXDn3KawwGwpHSXCB1AT7gZD5tk/formResponse"}
+        %span
+          Для обговорення деталей просимо заповнити коротку анкету, і наш менеджер Ірина зв'яжеться з вами найближчим часом
+          %br>/
+          Контакт: Ірина Стецевич, тел. 066 856 27 15, iryna.s@warm.if.ua
+        %input.required{:name => "entry.469424379", :placeholder => "Назва організації", :required => ""}/
+        %input{:name => "entry.2022919691", :placeholder => "Сайт"}/
+        %input.required{:name => "entry.17246301", :placeholder => "Контактна особа", :required => ""}/
+        %input.required{:name => "entry.1889577085", :placeholder => "Телефон", :required => ""}/
+        %input{:name => "entry.1167366972", :placeholder => "Email"}/
+        %textarea{:name => "entry.1130066702", :placeholder => "Коментар"}
+        %span
+          %img{:alt => "required", :src => "/assets/required.png"}>/
+          — поля обов’язкові для заповнення
+        %input.dialog-button.submit{:type => "submit", :value => "відправити"}/
+    #form-people.steps.form-people
+      .title
+        %p Стати членом ГО "Тепле місто"
+        .line
+      %form.people{:action => "https://docs.google.com/forms/d/1oT4gwX4lWSbM9yC8Lu4Vm5hu5_lNmmtWwmSsmU7u42s/formResponse"}
+        %span Для членства в ГО "Тепле місто" заповніть анкету, паперову або електронну та сплатіть річний членський внесок в сумі 120 грн. Після цього ми підтвердимо ваше членство в ГО "Тепле місто" і розповімо про подальші події та можливості.
+        %input.required{:name => "entry.1626895497", :placeholder => "Ім'я, прізвище", :required => ""}/
+        %input{:name => "entry.1439129501", :placeholder => "Адреса проживання"}/
+        %input.required{:name => "entry.1068768501", :placeholder => "Телефон", :required => ""}/
+        %input{:name => "entry.184859797", :placeholder => "Email"}/
+        %input{:name => "entry.980155344", :placeholder => "Facebook"}/
+        %textarea{:name => "entry.109117028", :placeholder => "Коментар"}
+        %span
+          %img{:alt => "required", :src => "/assets/required.png"}>/
+          — поля обов’язкові для заповнення
+        %input.dialog-button.submit{:type => "submit", :value => "відправити"}/
+    #money-help.steps.money-help
+      .title
+        %p Надати доброчинну допомогу
+        .line
+      .block.left.rax
+        %h5 Переказ на розрахунковий рахунок
+        %ul
+          %li
+            %span Отримувач платежу:
+            %b Благодійний фонд "Тепле місто"
+          %li
+            %span Код ЄДРПОУ:
+            %b 39377102
+          %li
+            %span Рахунок:
+            %b 260025 3039 0500
+          %li
+            %span Назва банку:
+            %b ПАТ "УкрСиббанк"
+          %li
+            %span МФО:
+            %b 351005
+          %li
+            %span Призначення платежу:
+            %b "Благодійний внесок"
+      .block.right.disabled
+        %h5 Онлайн-платіж з банківської карти картки
+        %a.dialog-button.submit оплатити
+  .back
+  .close
