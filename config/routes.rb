@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'publications/index'
 
 
+  mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
