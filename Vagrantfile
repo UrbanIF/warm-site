@@ -11,5 +11,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Forward the Rails server default port to the host
   config.vm.network "forwarded_port", guest: 3000, host: 1234
 
+  config.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+      v.cpus = 4
+  end
+
 
 end
