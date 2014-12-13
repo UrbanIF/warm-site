@@ -8,9 +8,12 @@
 #  url                  :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
+#  position             :integer
 #
 
 class Partner < ActiveRecord::Base
   translates :title, :body
   accepts_nested_attributes_for :translations, allow_destroy: true
+  mount_uploader :logo_color, PartnersUploader
+  mount_uploader :logo_black_and_white, PartnersUploader
 end

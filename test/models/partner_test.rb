@@ -8,6 +8,7 @@
 #  url                  :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
+#  position             :integer
 #
 
 require 'test_helper'

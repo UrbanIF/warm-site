@@ -7,6 +7,7 @@
 #  updated_at  :datetime
 #  link        :string(255)
 #  source_link :string(255)
+#  date        :date
 #
 
 require 'test_helper'
