@@ -2,7 +2,7 @@
 class CkeditorPictureUploader < CarrierWave::Uploader::Base
   include Ckeditor::Backend::CarrierWave
 
-
+  include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
   storage :file
 
