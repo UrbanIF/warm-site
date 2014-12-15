@@ -1,3 +1,0 @@
-%ul.languages
-  - I18n.available_locales.each do |loc|
-    %li= link_to t(loc, scope: [:lang_switcher]), change_locale_for_params(loc), {:class => locale == loc ? 'active' : '' }

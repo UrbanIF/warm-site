@@ -61,7 +61,7 @@ User
   end
 
 
-  [Publication, Partner, Project, StaticPage, News].each do |_model|
+  [Publication, Project, StaticPage].each do |_model|
     config.model _model do
       configure :translations, :globalize_tabs
     end

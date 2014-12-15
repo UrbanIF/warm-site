@@ -1,22 +1,15 @@
 !!!
-%html
+%html{:lang => "en"}
   %head
-    %title WarmSite
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-  %body
-    %header
-      = link_to root_path do
-        = image_tag 'logo.png', class: 'logo'
-      %nav
-        %ul
-          %li.title тепле місто
-          %li
-            %a{:href => "#"} Проекти
-          %li
-            %a{:href => "#"} про нас
-          %li
-            %a{:href => "partners.html"} партнери
-      = render 'layouts/lang_switcher'
-    = yield
+    %meta{:charset => "utf-8"}/
+    %title Тепле Місто
+    %link{:href => "//fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,cyrillic-ext", :rel => "stylesheet"}/
+    = stylesheet_link_tag 'application'
+    = favicon_link_tag 'favicon.png', rel: 'icon', type: 'image/png'
+
+  %body{ class: yield(:body_class) }
+    =render '/partials/menu'
+
+    =yield
+    =render '/partials/overlay'
+    =render '/partials/footer'

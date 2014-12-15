@@ -31,9 +31,7 @@ gem 'simple-navigation'
 gem 'kaminari'
 gem 'faker'
 gem 'cells'
-gem 'bourbon'
 gem 'therubyracer', :platform=>:ruby
-gem 'mini_magick'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
