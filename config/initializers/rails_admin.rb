@@ -53,7 +53,15 @@ User
     field :image, :carrierwave
   end
 
-  [Publication, Partner, Project, StaticPage].each do |_model|
+  config.model 'Partner' do
+    configure :translations, :globalize_tabs
+    weight 1
+    field :logo_color, :carrierwave
+    field :logo_black_and_white, :carrierwave
+  end
+
+
+  [Publication, Partner, Project, StaticPage, News].each do |_model|
     config.model _model do
       configure :translations, :globalize_tabs
     end
