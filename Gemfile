@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.3'
+ruby '2.1.5'
 gem 'rails', '4.1.5'
 gem 'sqlite3'
 gem 'groupdate'
@@ -41,6 +41,7 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'capistrano', '~> 2.15.4'
 end
 group :development, :test do
   gem 'pry-rails'
