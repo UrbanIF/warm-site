@@ -95,7 +95,7 @@ set :branch, 'current'
 set :deploy_via, :remote_cache
 
 set :linked_dirs, %w{ public/uploads }
-
+set :normalize_asset_timestamps, false
 
 ## Если ваш репозиторий в GitHub, используйте такую конфигурацию
 # set :repository,    "git@github.com:username/project.git"
