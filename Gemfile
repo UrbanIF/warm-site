@@ -33,6 +33,7 @@ gem 'faker'
 gem 'cells'
 gem 'therubyracer', :platform=>:ruby
 gem 'mini_magick'
+gem "browserify-rails", "~> 0.4"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -45,7 +46,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'thin'
-  gem "browserify-rails", "~> 0.4"
 end
 group :production do
   gem 'unicorn'
