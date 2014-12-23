@@ -105,6 +105,9 @@ User
     field :weight, :integer do
       default_value 0
     end
+    field :is_show, :boolean do
+      default_value true
+    end
     configure :translations, :globalize_tabs
     edit do
       fields :slug, :image, :big_image, :status, :is_show, :weight, :translations

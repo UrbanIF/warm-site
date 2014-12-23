@@ -1,19 +1,5 @@
 =render '/partials/header_rating'
-%section#projects.projects
-  %h2
-    проекти
-    %span><= @big_projects.count + @small_projects.count
-  .top-projects
-    - @big_projects.each do |project|
-      = link_to project_url(project.slug), {class: 'project', style: "background-image: url(#{image_path(project.image)})"} do
-        .info
-          %h3= project.title
-          %p= project.short
-  .other-projects
-    - @small_projects.each do |project|
-      = link_to project_url(project.slug), {class: 'project', style: "background-image: url(#{image_path(project.image)})"} do
-        .info
-          %h3= project.title
+=render 'projects'
 %section.mission
   =image_tag('photo2.jpg', class: 'paralax')
   .container
