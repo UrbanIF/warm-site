@@ -139,7 +139,7 @@ module.exports = (x)->
       if location.hash not in skipSteps
         console.log 'hash changed'
         transitToStep($(location.hash))
-      else if $container.hasClass('visible')
+      else if $dialogOverlay.hasClass('visible')
         hideOverlay($dialogOverlay)
       # else
       #   $("html, body").animate
