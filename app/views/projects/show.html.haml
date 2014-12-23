@@ -1,0 +1,11 @@
+- content_for :body_class, "project"
+- content_for :title, " - #{@project.title}"
+
+%section.header-image{style: "background-image: url(#{image_path(@project.big_image)})"}
+  .container
+    %h2= @project.title
+    %p= @project.short
+
+%section.project.user-text
+  = @project.body.html_safe
+  =render '/partials/share'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213145147) do
+ActiveRecord::Schema.define(version: 20141223203924) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 20141213145147) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "faq_translations", force: true do |t|
+    t.integer  "faq_id",     null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "source"
+  end
+
+  add_index "faq_translations", ["faq_id"], name: "index_faq_translations_on_faq_id"
+  add_index "faq_translations", ["locale"], name: "index_faq_translations_on_locale"
+
+  create_table "faqs", force: true do |t|
+  end
 
   create_table "news", force: true do |t|
     t.string   "image"
@@ -86,12 +100,16 @@ ActiveRecord::Schema.define(version: 20141213145147) do
 
   create_table "projects", force: true do |t|
     t.string   "image"
-    t.string   "type"
+    t.string   "status"
     t.boolean  "is_show"
-    t.integer  "position"
+    t.integer  "weight",     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug",       default: "", null: false
+    t.string   "big_image"
   end
+
+  add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true
 
   create_table "publication_translations", force: true do |t|
     t.integer  "publication_id", null: false

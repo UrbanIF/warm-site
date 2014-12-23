@@ -53,11 +53,12 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
-    primary.item :projects, 'Проекти', root_path(anchor: 'projects'), highlights_on: /projects/
+    primary.item :projects_list, 'Проекти', root_path(anchor: 'projects'), highlights_on: /projects/
     primary.item :about, 'про нас', root_path(anchor: 'info'), highlights_on: /about/
     primary.item :partners, 'партнери', root_path, highlights_on: /partners/
     primary.item :news, 'новини', news_index_path, highlights_on: :subpath
     primary.item :publications, 'публікації', publications_path
+    primary.item :faq, 'faq', faq_path
     # Add an item which has a sub navigation (same params, but with block)
     # primary.item :key_2, 'name', url, options do |sub_nav|
     #   # Add an item to the sub navigation (same params again)

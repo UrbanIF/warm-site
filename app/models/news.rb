@@ -16,6 +16,7 @@ class News < ActiveRecord::Base
   translates :title, :short, :body
   accepts_nested_attributes_for :translations, allow_destroy: true
 
+  default_scope { includes(:translations) }
   scope :main, -> { where(show_on_mine: true) }
   scope :order_by_date, -> { order(date: :desc) }
   scope :for_main, -> { main.order_by_date.limit(3) }

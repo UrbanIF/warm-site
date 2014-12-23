@@ -15,6 +15,7 @@ class Publication < ActiveRecord::Base
 
   translates :title, :source
   accepts_nested_attributes_for :translations, allow_destroy: true
+  default_scope { includes(:translations) }
   scope :order_by_date, -> { order(date: :desc) }
   private
     def set_date

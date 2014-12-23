@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class ProjectUploader < CarrierWave::Uploader::Base
+class ProjectsBigImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
@@ -23,10 +23,10 @@ class ProjectUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+  process resize_to_fit: [1860, 300]
 
   # Process files as they are uploaded:
-
-  process resize_to_fit: [475, 240]
+  # process :scale => [200, 300]
   #
   # def scale(width, height)
   #   # do something

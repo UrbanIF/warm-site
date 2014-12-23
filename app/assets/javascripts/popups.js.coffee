@@ -139,8 +139,12 @@ module.exports = (x)->
       if location.hash not in skipSteps
         console.log 'hash changed'
         transitToStep($(location.hash))
-      else
+      else if $container.hasClass('visible')
         hideOverlay($dialogOverlay)
+      # else
+      #   $("html, body").animate
+      #     scrollTop: $(location.hash).offset().top
+      #     , 1000
   )()
 
   preloadImages = (->

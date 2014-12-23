@@ -30,9 +30,6 @@ $ ->
 
   popups()
 
-  # highlight active menu item
-  path = window.location.pathname
-  $("a[href='#{path}']").addClass('active')
 
   # external links in new window
   $("a[href^='http://'], a[href^='https://']").attr("target","_blank")

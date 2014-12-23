@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'faq/show'
+
+  get 'projects/show'
+
   get 'publications/index'
 
 
@@ -9,6 +13,8 @@ Rails.application.routes.draw do
     root to: 'main#index'
     resources :news, only: [:index, :show]
     resources :publications, only: [:index]
-  end    
+    get 'projects/:slug', to: 'projects#show', as: :project
+    get 'faq', to: 'faq#show', as: :faq
+  end
    root to: redirect("/#{I18n.locale}", status: 302), as: :redirected_root
 end

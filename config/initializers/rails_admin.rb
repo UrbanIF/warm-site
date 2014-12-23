@@ -43,6 +43,8 @@ Project
 Project::Translation
 StaticPage
 StaticPage::Translation
+Faq
+Faq::Translation
 User
 )
 
@@ -61,7 +63,7 @@ User
   end
 
 
-  [Publication, Partner, Project, StaticPage, News].each do |_model|
+  [Publication, Partner, StaticPage, News, Faq].each do |_model|
     config.model _model do
       configure :translations, :globalize_tabs
     end
@@ -93,6 +95,26 @@ User
     include_fields :locale, :title, :body
   end
 
+  config.model 'Project' do
+    field :status, :enum do
+      enum do
+        [ [ 'великий','big' ], [ 'малий','small' ] ]
+      end
+      default_value 'big'
+    end
+    field :weight, :integer do
+      default_value 0
+    end
+    configure :translations, :globalize_tabs
+    edit do
+      fields :slug, :image, :big_image, :status, :is_show, :weight, :translations
+    end
+    list do
+      fields :slug, :image, :status, :is_show
+      field :title_uk
+    end
+  end
+
   config.model 'Project::Translation' do
     visible false
     configure :locale, :hidden do
@@ -100,6 +122,15 @@ User
     end
     configure :body, :ck_editor
     include_fields :locale, :title, :short, :body
+  end
+
+  config.model 'Faq::Translation' do
+    visible false
+    configure :locale, :hidden do
+      help ''
+    end
+    configure :source, :ck_editor
+    include_fields :locale, :source
   end
 
   config.model 'StaticPage::Translation' do

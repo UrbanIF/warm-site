@@ -10,7 +10,7 @@ if((typeof(CKEDITOR) != "undefined")){
             { name: 'insert', items: [ 'Image'] }
         ];
 
-        config.format_tags = 'p;h3';
+        config.format_tags = 'p;h3;h4;h5';
 
         config.toolbar = 'My';
         // config.filebrowserBrowseUrl = '/ckeditor/attachments';

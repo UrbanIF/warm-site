@@ -4,11 +4,13 @@
 #
 #  id         :integer          not null, primary key
 #  image      :string(255)
-#  type       :string(255)
+#  status     :string(255)
 #  is_show    :boolean
-#  position   :integer
+#  weight     :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  slug       :string(255)      default(""), not null
+#  big_image  :string(255)
 #
 
 require 'test_helper'
