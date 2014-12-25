@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'media_partners/index'
+
   get 'faq/show'
 
   get 'projects/show'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
     resources :publications, only: [:index]
     get 'projects/:slug', to: 'projects#show', as: :project
     get 'faq', to: 'faq#show', as: :faq
+    get 'partners', to: 'media_partners#index', as: :partners
   end
    root to: redirect("/#{I18n.locale}", status: 302), as: :redirected_root
 end

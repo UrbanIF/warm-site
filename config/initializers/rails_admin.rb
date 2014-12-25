@@ -46,6 +46,7 @@ StaticPage::Translation
 Faq
 Faq::Translation
 User
+MediaPartner
 )
 
 

@@ -13,107 +13,34 @@
           = link_to 'Питання та відповіді про рейтинг', faq_path, {class: 'rating-overlay__link'}
     Топ-50 найпрогресивніших компаній міста
   %ul.companies><
-    %li>
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://23restorany.ua", :title => "<h5>«23 ресторани»</h5><p> Генеральний партнер</p><a href=\"http://23restorany.ua\">23restorany.ua</a><iframe width=\"220\" height=\"115\" src=\"//www.youtube.com/embed/a9IF7e6IdMI\" frameborder=\"0\" allowfullscreen></iframe>"}
-          %img{"data-hover" => "/assets/companies/23-hover.jpg", :src => "/assets/companies/23.jpg"}/
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://softjourn.com", :title => "<h5>«SoftJourn»</h5><p>Генеральний партнер</p><a href=\"http://softjourn.com\">softjourn.com</a>"}
-          %img{"data-hover" => "/assets/companies/softjourn-hover.jpg", :src => "/assets/companies/softjourn.jpg"}/
-    %li>
-    %li>
-    %li>
-      .content.white>
-        %a{:href => "#", :title => "<h5>«Корона Захід»</h5><p> Генеральний партнер</p>"}
-          %img{"data-hover" => "/assets/companies/koronazahid-hover.jpg", :src => "/assets/companies/koranazahid.jpg"}/
-    %li>
-    %li>
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://beton.if.ua", :title => "<h5>«Завод якісних бетонів»</h5><p> Партнер</p><a href=\"http://beton.if.ua\">beton.if.ua</a>"}
-          %img{"data-hover" => "/assets/companies/zyb-hover.jpg", :src => "/assets/companies/zyb.jpg"}/
-    %li>
-    %li>
-    %li>
-    %li>
-    %li>
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://fil-bud.if.ua", :title => "<h5>«Спілка забудовників»</h5><p> Партнер</p><a href=\"http://fil-bud.if.ua\">fil-bud.if.ua</a>"}
-          %img{"data-hover" => "/assets/companies/szif-hover.jpg", :src => "/assets/companies/szif.jpg"}/
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://bastion-if.com.ua", :title => "<h5>«Фортечна галерея Бастіон»</h5><p>Партнер</p><a href=\"http://bastion-if.com.ua\">bastion-if.com.ua</a>"}
-          %img{"data-hover" => "/assets/companies/bastion-hover.jpg", :src => "/assets/companies/bastion.jpg"}/
-    %li>
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://chicken-hut.com.ua", :title => "<h5>«Сhicken Hut»</h5><p>Партнер</p><a href=\"http://chicken-hut.com.ua\">chicken-hut.com.ua</a>"}
-          %img{"data-hover" => "/assets/companies/chickenhut-hover.jpg", :src => "/assets/companies/chickenhut.jpg"}/
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://yogaifschool.com", :title => "<h5>«YogaIfSchool»</h5><p>Спонсор</p><a href=\"http://yogaifschool.com\">yogaifschool.com</a>"}
-          %img{"data-hover" => "/assets/companies/yoga-hover.jpg", :src => "/assets/companies/yoga.jpg"}/
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://lex-consulting.ua", :title => "<h5>«Lex Consulting»</h5><p>Консалтинговий партнер</p><a href=\"http://lex-consulting.ua\">lex-consulting.ua</a>"}
-          %img{"data-hover" => "/assets/companies/lex-hover.jpg", :src => "/assets/companies/lex.jpg"}/
-    %li>
-    %li>
-    %li>
-    %li>
-      .content.white
-        %a{:href => "https://facebook.com/parasolya", :title => "<h5>«Парасоля»</h5><p>Консалтинговий партнер</p><a href=\"https://facebook.com/parasolya\">facebook.com/parasolya</a>"}
-          %img{"data-hover" => "/assets/companies/parasolya-hover.jpg", :src => "/assets/companies/parasolya.jpg"}/
-    %li>
-    %li>
-    %li>
-    %li>
-      .content.white
-        %a{:href => "https://facebook.com/woosmm", :title => "<h5>«WOO SMM Agency»</h5><p>Консалтинговий партнер</p><a href=\"http://facebook.com/woosmm\">facebook.com/woosmm</a>"}
-          %img{"data-hover" => "/assets/companies/woo-hover.jpg", :src => "/assets/companies/woo.jpg"}/
-    %li>
-    %li>
-    %li>
-    %li>
-    %li>
-    %li>
-    %li>
-      .content.white
-        %a{:href => "http://webmil.com.ua", :title => "<h5>«Webmil»</h5><p>Технічний партнер</p><a href=\"http://webmil.com.ua\">webmil.com.ua</a>"}
-          %img{"data-hover" => "/assets/companies/webmil-hover.jpg", :src => "/assets/companies/webmil.jpg"}/
-    %li>
-      .content.white
-        %a{:href => "http://sint.if.ua", :title => "<h5>«СІНТ-Майстер»</h5><p>Технічний партнер</p><a href=\"http://sint.if.ua\">sint.if.ua</a>"}
-          %img{"data-hover" => "/assets/companies/sint-hover.jpg", :src => "/assets/companies/sint.jpg"}/
-    %li>
-    %li>
-    %li>
-    %li>
-    %li>
+    -49.times do |n|
+      -unless @partners[n].nil?
+        -content_for :partner_title do
+          %h5= @partners[n].title
+          %p= @partners[n].body
+          =link_to @partners[n].url
+        %li>
+          .content.white
+            =link_to @partners[n].url, title: escape_once(yield(:partner_title)) do
+              =image_tag(@partners[n].logo_black_and_white.url,{data:{hover: @partners[n].logo_color.url }})
+      -else
+        %li>
     %li>
       .content.add
         %a.sign-as-company{:href => "#step2c", :title => "приєднатися"}
           %img{:src => "/assets/companies/add.png"}/
   .progress
-    .desc 13/50
+    .desc<
+      = @partners.count
+      \/50
     .progress-bar
-      .filled{"data-width" => "231"}
+      -width = (890 / 50 * @partners.count) / 16
+      .filled{ data: { width: "#{width}em" } }
   .socials
-    %a{:href => "https://twitter.com/WarmCityIF"}
+    %a{href: "https://twitter.com/WarmCityIF"}
       =image_tag('twitter-small.png')
       twitter
-    %a.facebook{:href => "https://www.facebook.com/warmifua"}
+    %a.facebook{href: "https://www.facebook.com/warmifua"}
       =image_tag('facebook-small.png')
       facebook
   .triangle

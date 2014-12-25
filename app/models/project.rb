@@ -6,7 +6,7 @@
 #  image      :string(255)
 #  status     :string(255)
 #  is_show    :boolean
-#  weight     :integer
+#  weight     :integer          default(0)
 #  created_at :datetime
 #  updated_at :datetime
 #  slug       :string(255)      default(""), not null

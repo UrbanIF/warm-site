@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223203924) do
+ActiveRecord::Schema.define(version: 20141225200056) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20141223203924) do
   add_index "faq_translations", ["locale"], name: "index_faq_translations_on_locale"
 
   create_table "faqs", force: true do |t|
+  end
+
+  create_table "media_partners", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "logo"
+    t.string   "url"
   end
 
   create_table "news", force: true do |t|

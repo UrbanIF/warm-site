@@ -55,7 +55,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #
     primary.item :projects_list, 'Проекти', root_path(anchor: 'projects'), highlights_on: /projects/
     primary.item :about, 'про нас', root_path(anchor: 'info'), highlights_on: /about/
-    primary.item :partners, 'партнери', root_path, highlights_on: /partners/
+    primary.item :partners, 'партнери', partners_path, highlights_on: /partners/
     primary.item :news, 'новини', news_index_path, highlights_on: :subpath
     primary.item :publications, 'публікації', publications_path
     primary.item :faq, 'faq', faq_path

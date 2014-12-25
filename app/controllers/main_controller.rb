@@ -6,5 +6,6 @@ class MainController < ApplicationController
     @small_projects = Project.small.order_by_weight
     @total_projects_count = Project.visible.count
     @static_text = StaticPage.first
+    @partners = Partner.all.index_by(&:position)
   end
 end

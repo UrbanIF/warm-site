@@ -1,0 +1,12 @@
+=render '/partials/header_rating'
+%section.partners
+  %h2
+    медіапартнери
+    %span><= @media_partners.count
+  .list><
+    - @media_partners.each do |media_partner|
+      = link_to media_partner.url do
+        = image_tag media_partner.logo.url
+
+  .buttons
+    %a.button.red.support-button{href: "#"} підтримати

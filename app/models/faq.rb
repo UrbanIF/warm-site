@@ -1,3 +1,10 @@
+# == Schema Information
+#
+# Table name: faqs
+#
+#  id :integer          not null, primary key
+#
+
 class Faq < ActiveRecord::Base
 
   translates :source

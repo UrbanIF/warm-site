@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class PartnersUploader < CarrierWave::Uploader::Base
+class MediaPartnerUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
@@ -24,8 +24,10 @@ class PartnersUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+  process resize_to_fit: [110, 110]
+
   # Process files as they are uploaded:
-  process resize_to_fit: [92, 72]
+  # process :scale => [200, 300]
   #
   # def scale(width, height)
   #   # do something
@@ -47,14 +49,5 @@ class PartnersUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
-  def filename
-    @name ||= "#{timestamp}-#{super}" if original_filename.present? and super.present?
-  end
-
-  def timestamp
-    var = :"@#{mounted_as}_timestamp"
-    model.instance_variable_get(var) or model.instance_variable_set(var, Time.now.to_i)
-  end
 
 end
