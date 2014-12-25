@@ -34,7 +34,7 @@ task :copy_secrets_config, roles => :app do
 end
 
 task :copy_db, roles => :app do
-  app_config = "#{shared_path}/db/production.sqlite3"
+  app_db = "#{shared_path}/db/production.sqlite3"
   run "ln -s #{app_db} #{release_path}/db/production.sqlite3"
 end
 
