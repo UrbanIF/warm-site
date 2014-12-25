@@ -11,7 +11,7 @@
 #
 
 class MediaPartner < ActiveRecord::Base
-  mount_uploader :logo, PartnersUploader
+  mount_uploader :logo, MediaPartnersUploader
 
   validates_presence_of :logo, :url
 

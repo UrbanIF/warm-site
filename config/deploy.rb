@@ -76,6 +76,7 @@ role :web,            deploy_server
 role :app,            deploy_server
 role :db,             deploy_server, :primary => true
 
+set :keep_releases,   1
 # Следующие строки необходимы, т.к. ваш проект использует rvm.
 set :rvm_ruby_string, "2.1.5"
 set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake"

@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class MediaPartnerUploader < CarrierWave::Uploader::Base
+class MediaPartnersUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
