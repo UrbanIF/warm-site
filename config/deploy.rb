@@ -17,7 +17,7 @@ require 'bundler/capistrano'
 ## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
 ## следующие строки.
 
-after "deploy:update_code", :copy_database_config, :copy_application_config, :copy_secrets_config #, :create_symlink_to_assets
+after "deploy:update_code", :copy_database_config, :copy_application_config, :copy_secrets_config, :copy_db #, :create_symlink_to_assets
 task :copy_database_config, roles => :app do
   db_config = "#{shared_path}/database.yml"
   run "cp #{db_config} #{release_path}/config/database.yml"
@@ -31,6 +31,11 @@ end
 task :copy_secrets_config, roles => :app do
   app_config = "#{shared_path}/secrets.yml"
   run "cp #{app_config} #{release_path}/config/secrets.yml"
+end
+
+task :copy_db, roles => :app do
+  app_config = "#{shared_path}/db/production.sqlite3"
+  run "ln -s #{app_db} #{release_path}/db/production.sqlite3"
 end
 
 # task :create_symlink_to_assets, roles => :app do
