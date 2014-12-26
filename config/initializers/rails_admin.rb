@@ -64,6 +64,9 @@ MediaPartner
       field :title_uk
       fields :image, :date, :show_on_mine
     end
+    edit do
+      fields :image, :date, :show_on_mine, :translations
+    end
   end
 
   config.model 'Partner' do
