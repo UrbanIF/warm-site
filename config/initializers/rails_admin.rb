@@ -19,12 +19,18 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard # mandatory
     index # mandatory
-    new
+    new do
+      except ['Faq', 'StaticPage']
+    end
     export
-    bulk_delete
+    bulk_delete do
+      except ['Faq', 'StaticPage']
+    end
     show
     edit
-    delete
+    delete do
+      except ['Faq', 'StaticPage']
+    end
     show_in_app
 
     ## With an audit adapter, you can add:
@@ -54,6 +60,10 @@ MediaPartner
     configure :translations, :globalize_tabs
     weight 1
     field :image, :carrierwave
+    list do
+      field :title_uk
+      fields :image, :date, :show_on_mine
+    end
   end
 
   config.model 'Partner' do
@@ -64,7 +74,7 @@ MediaPartner
   end
 
 
-  [Publication, Partner, StaticPage, News, Faq].each do |_model|
+  [Publication, Partner, StaticPage, Faq].each do |_model|
     config.model _model do
       configure :translations, :globalize_tabs
     end
@@ -76,7 +86,7 @@ MediaPartner
       help ''
     end
     configure :body, :ck_editor
-    include_fields :locale, :title, :short, :body
+    include_fields :locale, :title, :short, :body, :title_on_mine, :short_on_mine
   end
 
   config.model 'Publication::Translation' do

@@ -17,7 +17,7 @@ require 'bundler/capistrano'
 ## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
 ## следующие строки.
 
-after "deploy:update_code", :copy_database_config, :copy_application_config, :copy_secrets_config, :copy_db #, :create_symlink_to_assets
+after "deploy:update_code", :copy_database_config, :copy_application_config, :copy_secrets_config, :copy_db, :create_symlink_to_uploads #, :create_symlink_to_assets
 task :copy_database_config, roles => :app do
   db_config = "#{shared_path}/database.yml"
   run "cp #{db_config} #{release_path}/config/database.yml"
@@ -37,6 +37,12 @@ task :copy_db, roles => :app do
   app_db = "#{shared_path}/db/production.sqlite3"
   run "ln -s #{app_db} #{release_path}/db/production.sqlite3"
 end
+
+task :create_symlink_to_uploads, roles => :app do
+  app_db = "#{shared_path}/public/uploads"
+  run "ln -s #{app_db} #{release_path}/public/uploads"
+end
+
 
 # task :create_symlink_to_assets, roles => :app do
 #   run "ln -s #{shared_path}/assets/ #{release_path}/public/assets"
@@ -100,7 +106,7 @@ set :repository,      "https://github.com/UrbanIF/warm-site"
 set :branch, 'current'
 set :deploy_via, :remote_cache
 
-set :linked_dirs, %w{ public/uploads }
+set :linked_dirs, fetch(:linked_dirs, []).push(%w{public/uploads})
 set :normalize_asset_timestamps, false
 
 ## Если ваш репозиторий в GitHub, используйте такую конфигурацию
