@@ -124,7 +124,7 @@ MediaPartner
     end
     configure :translations, :globalize_tabs
     edit do
-      fields :slug, :image, :big_image, :status, :is_show, :weight, :translations
+      fields :slug, :image, :big_image, :status, :file_link, :is_show, :weight, :translations
     end
     list do
       fields :slug, :image, :status, :is_show

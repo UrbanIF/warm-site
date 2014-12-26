@@ -11,6 +11,7 @@
 #  updated_at :datetime
 #  slug       :string(255)      default(""), not null
 #  big_image  :string(255)
+#  file_link  :string(255)
 #
 
 class Project < ActiveRecord::Base

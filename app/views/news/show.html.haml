@@ -7,7 +7,8 @@
       %span><=I18n.l @news.date, format: '%b'
   %article
     %h5= @news.title
-    %figure
-      =image_tag(@news.image.url)
+    - if @news.image.present?
+      %figure
+        =image_tag(@news.image.url)
     =@news.body.html_safe
     =render '/partials/share'

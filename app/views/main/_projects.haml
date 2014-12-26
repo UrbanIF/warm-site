@@ -4,12 +4,14 @@
     %span><= @total_projects_count
   .top-projects
     - @big_projects.each do |project|
-      = link_to project_path(project.slug), {class: 'project', style: "background-image: url(#{image_path(project.image)})"} do
+      - link = project.file_link.presence || project_path(project.slug)
+      = link_to link, {class: 'project', style: "background-image: url(#{image_path(project.image)})"} do
         .info
           %h3= project.title
           %p= project.short
   .other-projects
     - @small_projects.each do |project|
-      = link_to project_path(project.slug), {class: 'project', style: "background-image: url(#{image_path(project.image)})"} do
+      - link = project.file_link.presence || project_path(project.slug)
+      = link_to link, {class: 'project', style: "background-image: url(#{image_path(project.image)})"} do
         .info
           %h3= project.title
