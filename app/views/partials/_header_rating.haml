@@ -18,7 +18,7 @@
         -content_for :partner_title, flush: true do
           %h5= @partners[n].title
           %p= @partners[n].body
-          =link_to @partners[n].url if @partners[n].url.present?
+          =link_to @partners[n].url, @partners[n].url, target: '_blank' if @partners[n].url.present?
         %li>
           .content.white
             =link_to @partners[n].url, title: escape_once(yield(:partner_title)) do
