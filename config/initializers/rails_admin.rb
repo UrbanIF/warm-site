@@ -112,7 +112,7 @@ MediaPartner
     configure :locale, :hidden do
       help ''
     end
-    configure :body, :ck_editor
+    # configure :body, :ck_editor
     include_fields :locale, :title, :body
   end
 
