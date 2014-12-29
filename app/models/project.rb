@@ -15,6 +15,7 @@
 #
 
 class Project < ActiveRecord::Base
+  before_save :set_slug
   translates :title, :short, :body
   globalize_accessors locales: [:uk, :en], attributes: [:title]
   mount_uploader :image, ProjectUploader
@@ -28,4 +29,13 @@ class Project < ActiveRecord::Base
   scope :order_by_weight, -> { order(weight: :desc) }
   validates_presence_of :slug
   validates_uniqueness_of  :slug
+
+  def to_param
+    slug
+  end
+
+  private
+    def set_slug
+      self.slug = self.slug.parameterize
+    end
 end

@@ -12,7 +12,7 @@
 #
 
 class News < ActiveRecord::Base
-  before_save :set_date
+  before_save :set_date, :set_slug
   mount_uploader :image, NewsUploader
   translates :title, :short, :body, :title_on_mine, :short_on_mine
   globalize_accessors locales: [:uk, :en], attributes: [:title]
@@ -37,9 +37,17 @@ class News < ActiveRecord::Base
   validates_presence_of :slug
   validates_uniqueness_of :slug
 
+  def to_param
+    slug
+  end
+
   private
     def set_date
       self.date = Date.today unless self.date.present?
+    end
+
+    def set_slug
+      self.slug = self.slug.parameterize
     end
 
 end

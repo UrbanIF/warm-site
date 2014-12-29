@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+  scope (":locale"), locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'main#index'
     resources :news, only: [:index, :show]
     resources :publications, only: [:index]
