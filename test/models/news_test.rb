@@ -8,6 +8,7 @@
 #  updated_at   :datetime
 #  show_on_mine :boolean          default(TRUE)
 #  date         :date
+#  slug         :string(255)      default("")
 #
 
 require 'test_helper'

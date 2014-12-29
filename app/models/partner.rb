@@ -9,11 +9,14 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  position             :integer
+#  video                :string(255)
 #
 
 class Partner < ActiveRecord::Base
   translates :title, :body
   accepts_nested_attributes_for :translations, allow_destroy: true
+  globalize_accessors locales: [:uk, :en], attributes: [:title]
+  default_scope { includes(:translations) }
   mount_uploader :logo_color, PartnersUploader
   mount_uploader :logo_black_and_white, PartnersUploader
 

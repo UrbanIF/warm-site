@@ -9,6 +9,7 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  position             :integer
+#  video                :string(255)
 #
 
 require 'test_helper'

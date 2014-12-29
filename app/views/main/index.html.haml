@@ -40,7 +40,7 @@
     .news-item{ class: cycle('','','last') }><
       =image_tag(news.image.thumb.url)
       %h4
-        =link_to news.title_on_mine, news
+        = link_to news.title_on_mine, news_path(news.slug)
       %p= news.short_on_mine
       %time= I18n.l news.date
 

@@ -55,6 +55,11 @@ User
 MediaPartner
 )
 
+  [Publication, StaticPage, Faq].each do |_model|
+    config.model _model do
+      configure :translations, :globalize_tabs
+    end
+  end
 
   config.model 'News' do
     configure :translations, :globalize_tabs
@@ -65,7 +70,7 @@ MediaPartner
       fields :image, :date, :show_on_mine
     end
     edit do
-      fields :image, :date, :show_on_mine, :translations
+      fields :image, :date, :slug, :show_on_mine, :translations
     end
   end
 
@@ -73,15 +78,17 @@ MediaPartner
     configure :translations, :globalize_tabs
     weight 1
     field :logo_color, :carrierwave
-    field :logo_black_and_white, :carrierwave
-  end
-
-
-  [Publication, Partner, StaticPage, Faq].each do |_model|
-    config.model _model do
-      configure :translations, :globalize_tabs
+    list do
+      field :title_uk
+      fields :position
+    end
+    edit do
+      field :logo_black_and_white, :carrierwave
+      fields :url, :position, :video, :translations
     end
   end
+
+
 
   config.model 'News::Translation' do
     visible false

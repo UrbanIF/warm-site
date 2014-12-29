@@ -8,6 +8,7 @@
 #  updated_at   :datetime
 #  show_on_mine :boolean          default(TRUE)
 #  date         :date
+#  slug         :string(255)      default("")
 #
 
 class News < ActiveRecord::Base
@@ -32,6 +33,9 @@ class News < ActiveRecord::Base
   def short_on_mine
     self[:short_on_mine].presence || self[:short]
   end
+
+  validates_presence_of :slug
+  validates_uniqueness_of :slug
 
   private
     def set_date

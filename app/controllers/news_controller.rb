@@ -4,6 +4,6 @@ class NewsController < ApplicationController
   end
 
   def show
-    @news = News.find(params[:id])
+    @news = News.find_by_slug(params[:id])
   end
 end

@@ -8,6 +8,7 @@
 #  updated_at   :datetime
 #  show_on_mine :boolean          default(TRUE)
 #  date         :date
+#  slug         :string(255)      default("")
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
