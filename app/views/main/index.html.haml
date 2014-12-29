@@ -12,37 +12,5 @@
 - if @static_text.present?
   = render 'main/info'
 
-%section.map
-  .title проекти та події на мапі
-  #map-container
-  %ul.list
-    %li.all.active Всі
-    %li.item
-      %i>
-      Арт
-    %li.item
-      %i>
-      Реконструкція
-    %li.item
-      %i>
-      Створення
-    %li.item
-      %i>
-      Проведені події
-    %li.item
-      %i
-%section.news
-  %h2
-    новини
-    %span><
-      =@total_news
-  -@news.each do |news|
-    .news-item{ class: cycle('','','last') }><
-      =image_tag(news.image.thumb.url)
-      %h4
-        = link_to news.title_on_mine, news_path(news.slug)
-      %p= news.short_on_mine
-      %time= I18n.l news.date
-
-  .button-container
-    =link_to 'всі новини', news_index_path, {class:'button red' }
+= render 'main/map'
+= render 'main/news'

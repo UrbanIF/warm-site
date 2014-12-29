@@ -20,7 +20,7 @@ class Partner < ActiveRecord::Base
   mount_uploader :logo_color, PartnersUploader
   mount_uploader :logo_black_and_white, PartnersUploader
 
-  validates_presence_of :title, :url ,:logo_color, :logo_black_and_white, :position
+  validates_presence_of :title ,:logo_color, :logo_black_and_white, :position
   validates_uniqueness_of  :position
 
 end

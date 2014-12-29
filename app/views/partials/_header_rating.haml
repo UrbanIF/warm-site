@@ -15,10 +15,10 @@
   %ul.companies><
     -49.times do |n|
       -unless @partners[n].nil?
-        -content_for :partner_title do
+        -content_for :partner_title, flush: true do
           %h5= @partners[n].title
           %p= @partners[n].body
-          =link_to @partners[n].url
+          =link_to @partners[n].url if @partners[n].url.present?
         %li>
           .content.white
             =link_to @partners[n].url, title: escape_once(yield(:partner_title)) do
