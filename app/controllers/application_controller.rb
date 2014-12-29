@@ -3,15 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   layout :layout_by_resource
-  before_filter :get_language
-
-  def get_language
-    if params[:locale].nil?
-      I18n.locale = "uk"
-    else
-      I18n.locale = params[:locale]
-    end
-  end
 
   def set_locale(locale = I18n.default_locale)
     I18n.locale = params[:locale] || locale
