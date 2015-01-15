@@ -15,12 +15,18 @@
   %ul.companies><
     -49.times do |n|
       -unless @partners[n].nil?
+        - if @partners[n].video.present?
+          .preload{ style: "background: url(http://img.youtube.com/vi/#{@partners[n].video}/default.jpg) no-repeat -9999px -9999px;position:absolute;" } 
         -content_for :partner_title, flush: true do
           %h5= @partners[n].title
-          %p= @partners[n].body
-          %a.yt-video{href: "http://www.youtube.com/embed/nuLaBYXKpns?rel=0&autoplay=1&amp;showinfo=0html5=1"}
-            = image_tag("http://img.youtube.com/vi/nuLaBYXKpns/default.jpg")
-          =link_to @partners[n].url, @partners[n].url, target: '_blank' if @partners[n].url.present?
+          %p
+            = @partners[n].body
+            = link_to @partners[n].url, @partners[n].url, target: '_blank' if @partners[n].url.present?
+          - if @partners[n].video.present?
+
+            %a.yt-video{href: "http://www.youtube.com/embed/#{@partners[n].video}?rel=0&autoplay=1&amp;showinfo=0html5=1"}
+              = image_tag("http://img.youtube.com/vi/#{@partners[n].video}/default.jpg")
+
         %li>
           .content.white
             =link_to @partners[n].url, title: escape_once(yield(:partner_title)) do

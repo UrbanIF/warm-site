@@ -13,3 +13,4 @@
     =yield
     =render '/partials/overlay'
     =render '/partials/footer'
+    =render '/partials/analytics' if Rails.env == 'production'
