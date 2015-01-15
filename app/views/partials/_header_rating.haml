@@ -18,6 +18,8 @@
         -content_for :partner_title, flush: true do
           %h5= @partners[n].title
           %p= @partners[n].body
+          %a.yt-video{href: "http://www.youtube.com/embed/nuLaBYXKpns?rel=0&autoplay=1&amp;showinfo=0html5=1"}
+            = image_tag("http://img.youtube.com/vi/nuLaBYXKpns/default.jpg")
           =link_to @partners[n].url, @partners[n].url, target: '_blank' if @partners[n].url.present?
         %li>
           .content.white

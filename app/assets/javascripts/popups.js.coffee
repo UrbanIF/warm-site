@@ -1,7 +1,9 @@
 module.exports = (x)->
-  iframe = $('#player')[0]
+  # iframe = $('#player')[0]
 
   $videoOverlay = $('.video-overlay')
+  $videoLink = $('a.yt-video')
+  $videoContainer = $('#player')
   $dialogOverlay = $('.dialog-overlay')
   $supportButton = $('.support-button')
   $allSteps = $('.steps')
@@ -21,21 +23,17 @@ module.exports = (x)->
   showOverlay = ($container)->
     $container.addClass('visible')
     $('html').addClass('with-overlay')
+
   hideOverlay = ($container)->
     $container.removeClass('visible')
     $('html').removeClass('with-overlay')
     location.hash = ''
 
-  $('.how-it-works-link'). on 'click', (e)->
-    player = $f(iframe)
-    e.preventDefault()
-    showOverlay($videoOverlay)
-    player.api('play')
-
-  $videoOverlay.on 'click', ->
-    player = $f(iframe)
-    player.api('pause')
-    hideOverlay($videoOverlay)
+  # $('.how-it-works-link').on 'click', (e)->
+  #   player = $f(iframe)
+  #   e.preventDefault()
+  #   showOverlay($videoOverlay)
+  #   player.api('play')
 
   $supportButton.on 'click', (e)->
     e.preventDefault()
@@ -44,8 +42,28 @@ module.exports = (x)->
   # showFirstStep()
   # showOverlay($dialogOverlay)
 
+  $(document).on 'click', 'a.yt-video', (e)->
+    e.preventDefault()
+    vl = $(this).attr "href"
+    $youtubeVideo = $('<iframe height="315" width="560" src="' + vl + '" frameborder="0" allowfullscreen></iframe>')
+    $videoContainer.html $youtubeVideo
+    showOverlay($videoOverlay)
+    $('.tooltipstered').tooltipster 'hide'
 
-  $('.dialog-overlay .close, .dialog-overlay .close-link'). on 'click', (e)->
+  $('.video-overlay .close').on 'click', (e)->
+    e.preventDefault()
+    $videoContainer.html ""
+    hideOverlay($videoOverlay)
+
+  $videoOverlay.on 'click', ->
+    # player = $f(iframe)
+    # player.api('pause')
+    # hideOverlay($videoOverlay)
+    $videoContainer.html ""
+    hideOverlay($videoOverlay)
+
+
+  $('.dialog-overlay .close, .dialog-overlay .close-link').on 'click', (e)->
     e.preventDefault()
     hideOverlay($dialogOverlay)
 
@@ -132,7 +150,7 @@ module.exports = (x)->
 
   $('.back').on 'click', backStep
 
-  skipSteps = ['#projects','#info', '']
+  skipSteps = ['#projects','#info', '', '#']
 
   initHashchangeEvent = (->
     $(window).on 'hashchange', (e)->
