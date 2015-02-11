@@ -170,6 +170,10 @@ module.exports = (x)->
         content = "<div style='height:70px'>"
         content += "<h3>#{marker.title}</h3>"
         content += "#{marker.address}, #{marker.city}</div>"
+        for photo in marker.marker_photos
+          content += "<a href='#{photo.photo.url}' target='_blank'>"
+          content += "<img src='#{photo.photo.thumb.url}' alt='#{photo.title}' class='small-photo' />"
+          content += "</a>"
         bindInfoWindow(gMarker, map, content)
         group.markerObjs.push(gMarker)
 

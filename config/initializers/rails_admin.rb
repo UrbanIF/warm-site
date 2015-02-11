@@ -57,6 +57,7 @@ Marker
 Marker::Translation
 MarkerGroup
 MarkerGroup::Translation
+MarkerPhoto
 )
 
   [Publication, StaticPage, Faq].each do |_model|
@@ -176,6 +177,7 @@ MarkerGroup::Translation
     configure :translations, :globalize_tabs
     edit do
       fields :icon, :marker_group
+
       field :city do
         default_value 'default_value'
       end
@@ -188,6 +190,7 @@ MarkerGroup::Translation
         default_zoom_level 17
       end
       field :translations
+      field :marker_photos
     end
   end
 
@@ -211,5 +214,9 @@ MarkerGroup::Translation
     include_fields :locale, :title
   end
 
+  config.model 'MarkerPhoto' do
+    visible false
+    fields :title, :photo
+  end
 
 end

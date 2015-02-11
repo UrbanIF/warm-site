@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: marker_photos
+#
+#  id         :integer          not null, primary key
+#  photo      :string(255)
+#  title      :string(255)
+#  marker_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  photo: MyString
+  title: MyString
+  marker_id: 
+
+two:
+  photo: MyString
+  title: MyString
+  marker_id: 

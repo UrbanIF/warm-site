@@ -15,10 +15,12 @@
 
 class Marker < ActiveRecord::Base
   belongs_to :marker_group
+  has_many :marker_photos, dependent: :destroy
   translates :title
   default_scope { includes(:translations) }
 
   accepts_nested_attributes_for :translations, allow_destroy: true
+  accepts_nested_attributes_for :marker_photos, allow_destroy: true
   mount_uploader :icon, IconUploader
 
   after_initialize do
