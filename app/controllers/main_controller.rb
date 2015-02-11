@@ -8,4 +8,9 @@ class MainController < ApplicationController
     @static_text = StaticPage.first
     @partners = Partner.all.index_by(&:position)
   end
+
+  def markers
+    markers_groups = MarkerGroup.includes(:markers).all
+    render json: markers_groups.to_json(include: :markers)
+  end
 end

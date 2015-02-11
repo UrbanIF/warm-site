@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/BartlomiejSkwira/rails_admin_map_field.git
+  revision: 3ed4cee11eb0653669651357393289a237e09b73
+  specs:
+    rails_admin_map_field (0.0.2)
+      rails (>= 3.0.0)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: bdccf9155fe29743d8868a6a622522f9eb774710
   specs:
@@ -304,6 +311,7 @@ DEPENDENCIES
   rails_admin!
   rails_admin-i18n!
   rails_admin_globalize_field
+  rails_admin_map_field!
   rails_layout
   rmagick (~> 2.13.1)
   sass-rails (~> 4.0.3)

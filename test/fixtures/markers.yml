@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: markers
+#
+#  id              :integer          not null, primary key
+#  latitude        :string(255)
+#  longitude       :string(255)
+#  address         :string(255)
+#  icon            :string(255)
+#  marker_group_id :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  city            :string(255)      default("")
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  latitude: MyString
+  longitude: MyString
+  address: MyString
+  title: MyString
+  icon: MyString
+  marker_group_id: 
+
+two:
+  latitude: MyString
+  longitude: MyString
+  address: MyString
+  title: MyString
+  icon: MyString
+  marker_group_id: 

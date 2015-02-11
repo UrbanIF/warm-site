@@ -53,6 +53,10 @@ Faq
 Faq::Translation
 User
 MediaPartner
+Marker
+Marker::Translation
+MarkerGroup
+MarkerGroup::Translation
 )
 
   [Publication, StaticPage, Faq].each do |_model|
@@ -167,4 +171,45 @@ MediaPartner
     end
     include_fields :locale, :vision_title, :vision_text, :values_text, :tasks_text
   end
+
+  config.model 'Marker' do
+    configure :translations, :globalize_tabs
+    edit do
+      fields :icon, :marker_group
+      field :city do
+        default_value 'default_value'
+      end
+      field :address
+      field :latitude, :map do
+        default_latitude 48.92272485351708
+        default_longitude 24.710542203392833
+        map_width '600px'
+        map_height '400px'
+        default_zoom_level 17
+      end
+      field :translations
+    end
+  end
+
+  config.model 'Marker::Translation' do
+    visible false
+    configure :locale, :hidden do
+      help ''
+    end
+    include_fields :locale, :title
+  end
+
+  config.model 'MarkerGroup' do
+    configure :translations, :globalize_tabs
+  end
+
+  config.model 'MarkerGroup::Translation' do
+    visible false
+    configure :locale, :hidden do
+      help ''
+    end
+    include_fields :locale, :title
+  end
+
+
 end

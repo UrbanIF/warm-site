@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229185121) do
+ActiveRecord::Schema.define(version: 20150211110944) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -42,6 +42,47 @@ ActiveRecord::Schema.define(version: 20141229185121) do
 
   create_table "faqs", force: true do |t|
   end
+
+  create_table "marker_group_translations", force: true do |t|
+    t.integer  "marker_group_id", null: false
+    t.string   "locale",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+  end
+
+  add_index "marker_group_translations", ["locale"], name: "index_marker_group_translations_on_locale"
+  add_index "marker_group_translations", ["marker_group_id"], name: "index_marker_group_translations_on_marker_group_id"
+
+  create_table "marker_groups", force: true do |t|
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "marker_translations", force: true do |t|
+    t.integer  "marker_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+  end
+
+  add_index "marker_translations", ["locale"], name: "index_marker_translations_on_locale"
+  add_index "marker_translations", ["marker_id"], name: "index_marker_translations_on_marker_id"
+
+  create_table "markers", force: true do |t|
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "address"
+    t.string   "icon"
+    t.integer  "marker_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city",            default: ""
+  end
+
+  add_index "markers", ["marker_group_id"], name: "index_markers_on_marker_group_id"
 
   create_table "media_partners", force: true do |t|
     t.datetime "created_at"

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'publications/index'
 
+  get 'markers', to: 'main#markers'
 
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

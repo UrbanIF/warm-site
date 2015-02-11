@@ -34,6 +34,8 @@ gem 'cells'
 gem 'therubyracer', :platform=>:ruby
 gem 'mini_magick'
 gem "browserify-rails", "~> 0.4"
+gem "rails_admin_map_field", github: "BartlomiejSkwira/rails_admin_map_field"
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

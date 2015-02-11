@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: marker_groups
+#
+#  id         :integer          not null, primary key
+#  color      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  color: MyString
+
+two:
+  title: MyString
+  color: MyString
