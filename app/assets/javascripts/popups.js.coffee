@@ -1,140 +1,26 @@
 module.exports = (x)->
-  # iframe = $('#player')[0]
 
-  $videoOverlay = $('.video-overlay')
-  $videoLink = $('a.yt-video')
-  $videoContainer = $('#player')
-  $dialogOverlay = $('.dialog-overlay')
-  $supportButton = $('.support-button')
-  $allSteps = $('.steps')
-  $defaultStep = $('.step1')
-  $humanStep = $('.step2')
-  $companyStep = $('.step2c')
-  $moneyStep = $('.money-help')
-  $successStep = $('.success-step')
-  $businessFormStep = $('.form-business')
-  $peopleFormStep = $('.form-people')
-  $backButton = $('.back')
+  (initVideoPopup = ->
+    $videoContainer = $('#player')
 
-  $currentStep = $defaultStep
+    $(document).on 'click', 'a.yt-video', (e)->
+      e.preventDefault()
+      $('.tooltipstered').tooltipster 'hide'
+      vl = $(this).attr "href"
+      $youtubeVideo = $('<iframe height="315" width="560" src="' + vl + '" frameborder="0" allowfullscreen></iframe>')
+      $videoContainer.html $youtubeVideo
+      location.hash = '#video-player'
 
-  previousSteps = []
-
-  showOverlay = ($container)->
-    $container.addClass('visible')
-    $('html').addClass('with-overlay')
-
-  hideOverlay = ($container)->
-    $container.removeClass('visible')
-    $('html').removeClass('with-overlay')
-    location.hash = ''
-
-  # $('.how-it-works-link').on 'click', (e)->
-  #   player = $f(iframe)
-  #   e.preventDefault()
-  #   showOverlay($videoOverlay)
-  #   player.api('play')
-
-  $supportButton.on 'click', (e)->
-    e.preventDefault()
-    console.log $(@).prop('href')
-    location.href = $(@).prop('href')
-  # showFirstStep()
-  # showOverlay($dialogOverlay)
-
-  $(document).on 'click', 'a.yt-video', (e)->
-    e.preventDefault()
-    vl = $(this).attr "href"
-    $youtubeVideo = $('<iframe height="315" width="560" src="' + vl + '" frameborder="0" allowfullscreen></iframe>')
-    $videoContainer.html $youtubeVideo
-    showOverlay($videoOverlay)
-    $('.tooltipstered').tooltipster 'hide'
-
-  $('.video-overlay .close').on 'click', (e)->
-    e.preventDefault()
-    $videoContainer.html ""
-    hideOverlay($videoOverlay)
-
-  $videoOverlay.on 'click', ->
-    # player = $f(iframe)
-    # player.api('pause')
-    # hideOverlay($videoOverlay)
-    $videoContainer.html ""
-    hideOverlay($videoOverlay)
+    $('.video-overlay, .video-overlay .close').on 'click', (e)->
+      $videoContainer.html ""
+      location.hash = ''
+  )()
 
 
-  $('.dialog-overlay .close, .dialog-overlay .close-link').on 'click', (e)->
-    e.preventDefault()
-    hideOverlay($dialogOverlay)
 
-  checkBackButton = ->
-    $backButton.show() if previousSteps.length > 0
-    $backButton.hide() if previousSteps.length is 0 or location.hash is '#step1'
+  $('.overlay .back').on 'click', ->
+    window.history.back()
 
-  transitToStep = ($nextStep) ->
-    console.log $('.dialog-overlay').css('opacity') is '0'
-    showOverlay($dialogOverlay) if $('.dialog-overlay').css('opacity') is '0'
-    $currentStep.fadeOut 'fast', ->
-      $nextStep.fadeIn 'fast'
-    previousSteps.push $currentStep
-    checkBackButton()
-    $currentStep = $nextStep
-
-  backStep = ->
-    $previous = previousSteps.pop()
-    if $previous
-      # $currentStep.fadeOut 'fast', ->
-      #   $previous.fadeIn 'fast'
-      window.history.back()
-      checkBackButton()
-  # $currentStep = $previous
-
-
-  showSuccessStep = ()->
-    # e.preventDefault()
-    transitToStep($successStep)
-    previousSteps = []
-    checkBackButton()
-
-  showHumanStep = (e)->
-    e.preventDefault()
-    transitToStep($humanStep)
-
-  showCompanyStep = (e)->
-    e.preventDefault()
-    transitToStep($companyStep)
-
-  showBusinessFormStep= (e)->
-    e.preventDefault()
-    transitToStep($businessFormStep)
-
-  showPeopleFormStep= (e)->
-    e.preventDefault()
-    transitToStep($peopleFormStep)
-
-  showMoneyStep= (e)->
-    e.preventDefault()
-    transitToStep($moneyStep)
-
-  showFirstStep = ->
-    $allSteps.hide()
-    $defaultStep.show()
-    $currentStep = $defaultStep
-
-  showOverlayWithForm= (e)->
-    previousSteps = []
-    e.preventDefault()
-    location.hash = 'step2c'
-
-    showOverlay($dialogOverlay)
-    showCompanyStep(e)
-
-
-  checkBackButton()
-  # $('.step1 .as-human').on 'click', showHumanStep
-  # $('.step1 .as-company').on 'click', showCompanyStep
-  # $('.step2c .become-business-partner').on 'click', showBusinessFormStep
-  # $('.step2 .become-member').on 'click', showPeopleFormStep
   $('form.business, form.people').on 'submit', (e)->
     e.preventDefault()
     form = $(e.currentTarget)
@@ -142,33 +28,42 @@ module.exports = (x)->
     action = form.prop('action')
     xhr = $.post( action, data )
     xhr.always ->
-      showSuccessStep()
-  # $('form.people').on 'submit', showSuccessStep
-  # $('.give-money').on 'click', showMoneyStep
+      location.hash = '#success-step'
 
-  $('.sign-as-company').on 'click', showOverlayWithForm
+  showBackButtonIfNeed = ($overlay) ->
+    $btn = $overlay.find('.back')
+    if location.hash is '#step1'
+      $btn.hide()
+    else
+      $btn.show()
 
-  $('.back').on 'click', backStep
 
-  skipSteps = ['#projects','#info', '', '#']
+  handleHashChange = ->
+    hash = location.hash
 
-  initHashchangeEvent = (->
-    $(window).on 'hashchange', (e)->
-      if location.hash not in skipSteps
-        console.log 'hash changed'
-        transitToStep($(location.hash))
-      else if $dialogOverlay.hasClass('visible')
-        hideOverlay($dialogOverlay)
-      # else
-      #   $("html, body").animate
-      #     scrollTop: $(location.hash).offset().top
-      #     , 1000
-  )()
+    elSelector = '.js-' + hash.slice(1)
 
-  preloadImages = (->
-    $('.companies a img').each ->
-      ob = $(@)
-      if ob.data('hover')
-        i =  new Image()
-        i.src = ob.data('hover')
-  )()
+    if hash and $(elSelector).length
+      $el = $(elSelector)
+
+      $overlay = $el.parents('.overlay')
+
+      showBackButtonIfNeed($overlay)
+
+      visibleStep = $overlay.find('.steps[style*="display: block;"]')
+
+      if visibleStep.length
+        visibleStep.fadeOut 'fast', -> $el.fadeIn 'fast'
+      else
+        $el.fadeIn 'fast'
+
+      $overlay.addClass('visible')
+      $('html').addClass('with-overlay')
+
+    else
+      $('.overlay').removeClass('visible')
+      $('html').removeClass('with-overlay')
+
+
+  handleHashChange()
+  window.onhashchange = handleHashChange

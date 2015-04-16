@@ -4,6 +4,14 @@ popups = require('./popups')
 
 $ ->
 
+  preloadImages = (->
+    $('.companies a img').each ->
+      ob = $(@)
+      if ob.data('hover')
+        i =  new Image()
+        i.src = ob.data('hover')
+  )()
+
   # make color logo for company
   $('.companies .content.white img').on
     'mouseenter': ->

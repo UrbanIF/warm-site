@@ -1,12 +1,17 @@
 .overlay.video-overlay
   .center
-    #player
+    #player.js-video-player
     -# %iframe#player{:width => "560", :height => "315", :src => "//www.youtube.com/embed/nuLaBYXKpns", :frameborder => "0", :allowfullscreen => "true"}
     -# %iframe#player{:allowfullscreen => "true", :frameborder => "0", :mozallowfullscreen => "true", :src => "//player.vimeo.com/video/94954902?title=0&byline=0&portrait=0&api=1&player_id=player", :webkitallowfullscreen => "true"}
   .close
+
+
+
+
 .overlay.dialog-overlay.white
   .center
-    #step1.steps.step1
+
+    .steps.step1.js-step1
       .title
         %p Обирай форму допомоги нам
         .line
@@ -22,7 +27,8 @@
           прогресивна людина
           %span.help{:title => "Ви - небайдужа, сучасна, проактивна людина? Ви любите це місто і хочете, аби воно стало ще кращим? Оберіть, що вам ближче:<ul><li>Стати членом ГО \"Тепле місто\"</li><li>Надати доброчинну допомогу</li><li>Придбати продукцію у стилі Івано-Франківська</li></ul>"}
         %a.dialog-button.as-human{:href => "#step2"} підтримати
-    #step2.steps.step2
+
+    .steps.step2.js-step2
       .title
         %p допомогти
         .line
@@ -44,7 +50,8 @@
         %h5 online store
         %p Придбати продукцію з логотипом Івано-Франківська
         %a.dialog-button coming soon
-    #step2c.steps.step2c
+
+    .steps.step2c.js-step2c
       .title
         %p допомоги нам як компанія
         .line
@@ -62,12 +69,14 @@
           %span.help{:title => "Ви поділяєте наші цінності і прагнете зробити Івано-Франківськ прогресивним сучасним містом? Тоді підтримайте \"Тепле місто\", зробивши доброчинний внесок у зручний для вас спосіб. Ця можливість відкрита як для окремих людей, так і для організацій. <ul> <li>Онлайн-платіж з банківської картки (coming soon)</li> <li>Переказ на розрахунковий рахунок</li></ul>"}
         %p Підтримайте "Тепле місто", зробивши доброчинний внесок у зручний для вас спосіб.
         %a.dialog-button.give-money{:href => "#money-help"} підтримати
-    #success-step.steps.success-step
+
+    .steps.success-step.js-success-step
       %img.success{:alt => "success", :src => "/assets/success.png"}/
       %h5 Дякуємо! Вашу заявку прийнято
       %p очікуйте лист відповідь на пошту
-      %a.close-link{:href => "#"} закрити
-    #form-business.steps.form-business
+      %a.close-link{href: ''} закрити
+
+    .steps.form-business.js-form-business
       .title
         %p Стати бізнес-партнером
         .line
@@ -86,7 +95,8 @@
           %img{:alt => "required", :src => "/assets/required.png"}>/
           — поля обов’язкові для заповнення
         %input.dialog-button.submit{:type => "submit", :value => "відправити"}/
-    #form-people.steps.form-people
+
+    .steps.form-people.js-form-people
       .title
         %p Стати членом ГО "Тепле місто"
         .line
@@ -102,7 +112,8 @@
           %img{:alt => "required", :src => "/assets/required.png"}>/
           — поля обов’язкові для заповнення
         %input.dialog-button.submit{:type => "submit", :value => "відправити"}/
-    #money-help.steps.money-help
+
+    .steps.money-help.js-money-help
       .title
         %p Надати доброчинну допомогу
         .line
@@ -131,4 +142,5 @@
         %h5 Онлайн-платіж з банківської карти
         %a.dialog-button.submit оплатити
   .back
-  .close
+
+  %a.close{href: ''}
