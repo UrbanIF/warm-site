@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211162328) do
+ActiveRecord::Schema.define(version: 20150416141321) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -106,9 +106,10 @@ ActiveRecord::Schema.define(version: 20150211162328) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "show_on_mine", default: true
+    t.boolean  "show_on_mine",    default: true
     t.date     "date"
-    t.string   "slug",         default: ""
+    t.string   "slug",            default: ""
+    t.boolean  "show_mine_photo", default: true
   end
 
   add_index "news", ["slug"], name: "index_news_on_slug", unique: true

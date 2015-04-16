@@ -70,6 +70,7 @@ MarkerPhoto
     configure :translations, :globalize_tabs
     weight 1
     field :image, :carrierwave
+    field :show_mine_photo
     list do
       field :title_uk
       fields :image, :date, :show_on_mine

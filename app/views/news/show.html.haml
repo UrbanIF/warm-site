@@ -7,7 +7,7 @@
       %span><=I18n.l @news.date, format: '%b'
   %article
     %h5= @news.title
-    - if @news.image.present?
+    - if @news.image.present? && @news.show_mine_photo
       %figure
         =image_tag(@news.image.url)
     =@news.body.html_safe
