@@ -1229,6 +1229,8 @@ section.info .tasks:last-child {
 	display:block;
 	margin-right:1.05263%;
 	width:49.47368%;
+	padding-left: 5.88%;
+	text-indent: -5.88%;
 }
 
 .contacts .adress:last-child {
