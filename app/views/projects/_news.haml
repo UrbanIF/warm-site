@@ -1,0 +1,14 @@
+%section.news
+  %h2
+    новини проекту
+    %span>= total_news
+  -news.each do |news|
+    .news-item{ class: cycle('','','last') }><
+      =image_tag(news.image.thumb.url)
+      %h4
+        = link_to news.title_on_mine, news
+      %p= news.short_on_mine
+      %time= I18n.l news.date
+
+  .button-container
+    =link_to 'новини проекту', project_news_path(@project), { class:'button red' }

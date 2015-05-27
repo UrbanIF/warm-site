@@ -4,11 +4,11 @@
     %span>= @total_news
   -@news.each do |news|
     .news-item{ class: cycle('','','last') }><
-      =image_tag(news.image.thumb.url)
+      = image_tag(news.image.thumb.url)
       %h4
         = link_to news.title_on_mine, news
       %p= news.short_on_mine
       %time= I18n.l news.date
 
   .button-container
-    =link_to 'всі новини', news_index_path, {class:'button red' }
+    = link_to 'всі новини', news_index_path, { class:'button red' }

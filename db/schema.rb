@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416141321) do
+ActiveRecord::Schema.define(version: 20150419153528) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -106,13 +106,25 @@ ActiveRecord::Schema.define(version: 20150416141321) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "show_on_mine",    default: true
+    t.boolean  "show_on_mine",      default: true
     t.date     "date"
-    t.string   "slug",            default: ""
-    t.boolean  "show_mine_photo", default: true
+    t.string   "slug",              default: ""
+    t.boolean  "show_mine_photo",   default: true
+    t.integer  "project_id"
+    t.boolean  "show_in_main_list", default: true
   end
 
+  add_index "news", ["project_id"], name: "index_news_on_project_id"
   add_index "news", ["slug"], name: "index_news_on_slug", unique: true
+
+  create_table "news_photos", force: true do |t|
+    t.string   "photo"
+    t.integer  "news_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "news_photos", ["news_id"], name: "index_news_photos_on_news_id"
 
   create_table "news_translations", force: true do |t|
     t.integer  "news_id",       null: false

@@ -13,6 +13,4 @@ class CreateNews < ActiveRecord::Migration
     drop_table :news
     News.drop_translation_table!
   end
-
-
 end

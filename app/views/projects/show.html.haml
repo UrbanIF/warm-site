@@ -8,4 +8,6 @@
 
 %section.project.user-text
   = @project.body.html_safe
-  =render '/partials/share'
+  = render '/partials/share'
+
+= render 'news', news: @project.news, total_news: @project.news.count

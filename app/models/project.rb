@@ -20,6 +20,7 @@ class Project < ActiveRecord::Base
   globalize_accessors locales: [:uk, :en], attributes: [:title]
   mount_uploader :image, ProjectUploader
   mount_uploader :big_image, ProjectsBigImageUploader
+  has_many :news
   accepts_nested_attributes_for :translations, allow_destroy: true
 
   default_scope { includes(:translations) }

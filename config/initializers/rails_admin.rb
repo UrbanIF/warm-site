@@ -41,6 +41,7 @@ RailsAdmin.config do |config|
   config.included_models = %w(
 News
 News::Translation
+NewsPhoto
 Publication
 Publication::Translation
 Partner
@@ -77,7 +78,13 @@ MarkerPhoto
     end
     edit do
       fields :image, :date, :slug, :show_on_mine, :translations
+      fields :project, :show_in_main_list, :news_photos
     end
+  end
+
+  config.model 'NewsPhoto' do
+    visible false
+    field :photo
   end
 
   config.model 'Partner' do
@@ -93,8 +100,6 @@ MarkerPhoto
       fields :url, :position, :video, :translations
     end
   end
-
-
 
   config.model 'News::Translation' do
     visible false

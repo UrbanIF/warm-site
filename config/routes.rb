@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :news, only: [:index, :show]
     resources :publications, only: [:index]
     get 'projects/:slug', to: 'projects#show', as: :project
+    get 'projects/:slug/news', to: 'projects#show_news', as: :project_news
     get 'faq', to: 'faq#show', as: :faq
     get 'partners', to: 'media_partners#index', as: :partners
   end

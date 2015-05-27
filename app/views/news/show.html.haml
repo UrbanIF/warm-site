@@ -3,12 +3,16 @@
 %section.news-item
   .date
     %time><
-      =@news.date.strftime('%d')
+      = @news.date.strftime('%d')
       %span><=I18n.l @news.date, format: '%b'
   %article
     %h5= @news.title
     - if @news.image.present? && @news.show_mine_photo
       %figure
         =image_tag(@news.image.url)
-    =@news.body.html_safe
-    =render '/partials/share'
+    = @news.body.html_safe
+
+    - @news.news_photos.each do |news_photo|
+      %a{href: news_photo.photo.url}
+        %img{src: news_photo.photo.thumb.url}
+    = render '/partials/share'

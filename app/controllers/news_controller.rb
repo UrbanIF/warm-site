@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   def index
-    @news = News.order_by_date.group_by do |news|
+    @news = News.global.order_by_date.group_by do |news|
       I18n.l(news.date, format: '%B %Y')
     end
   end
