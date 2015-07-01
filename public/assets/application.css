@@ -1809,8 +1809,13 @@ section.news .button-container .button.red:before {
 	display:block;
 	margin:-1.25em 0 .41667em;
 }
-
-.dialog-overlay .form-business form span img, .dialog-overlay .form-people form span img {
+.dialog-overlay .form-donate form span  {
+	color:#7b7b7b;
+	font-size:.75em;
+	display:block;
+	margin:0 0 .41667em;
+}
+.dialog-overlay .form-business form span img, .dialog-overlay .form-people form span img, .dialog-overlay .form-donate form span img  {
 	margin:0 .3125em 0 0;
 }
 
