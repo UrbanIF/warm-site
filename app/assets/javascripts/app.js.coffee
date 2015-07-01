@@ -28,21 +28,19 @@ $ ->
   $('.filled').width(width)
 
 
-  $('li .content.white a, span.help').tooltipster(
+  $('li .content.white a, span.help').tooltipster
     contentAsHTML: true
     theme: 'tooltipster-warm'
     interactive: true
-  )
-
+  
   parallax()
-
   popups()
-
 
   # external links in new window
   $("a[href^='http://'], a[href^='https://']").attr("target","_blank")
-  stLight.options
-    publisher: "75111b81-2647-4c71-9361-92cfc4839401"
-    doNotHash: true
-    doNotCopy: true
-    hashAddressBar: true
+  if window.stLight
+    stLight.options
+      publisher: "75111b81-2647-4c71-9361-92cfc4839401"
+      doNotHash: true
+      doNotCopy: true
+      hashAddressBar: true

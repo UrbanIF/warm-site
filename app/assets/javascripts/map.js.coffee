@@ -91,4 +91,4 @@ module.exports = (x)->
       placeMarkers(groups, map)
       initEvents()
 
-  google.maps.event.addDomListener window, "load", initialize
+  google.maps.event.addDomListener window, "load", initialize if window.google

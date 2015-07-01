@@ -5,9 +5,6 @@
     -# %iframe#player{:allowfullscreen => "true", :frameborder => "0", :mozallowfullscreen => "true", :src => "//player.vimeo.com/video/94954902?title=0&byline=0&portrait=0&api=1&player_id=player", :webkitallowfullscreen => "true"}
   .close
 
-
-
-
 .overlay.dialog-overlay.white
   .center
 
@@ -20,13 +17,13 @@
         %h5
           прогресивна компанія
           %span.help{title: "\"Тепле місто\" об’єднує людей і бізнеси, які підтримують ідеї та дії щодо сталого розвитку Івано-Франківська. Якщо ваша компанія є саме такою, ми пропонуємо два варіанти співпраці: <ul><li>Стати бізнес-партнером</li><li>Надати одноразову допомогу</li></ul>"}
-        %a.dialog-button.as-company{:href => "#step2c"} підтримати
+        %a.dialog-button.as-company{href: "#step2c"} підтримати
       .right
         %img.transformer{alt: "transformer", src: "/assets/transformer.png"}/
         %h5
           прогресивна людина
           %span.help{title: "Ви - небайдужа, сучасна, проактивна людина? Ви любите це місто і хочете, аби воно стало ще кращим? Оберіть, що вам ближче:<ul><li>Стати членом ГО \"Тепле місто\"</li><li>Надати доброчинну допомогу</li><li>Придбати продукцію у стилі Івано-Франківська</li></ul>"}
-        %a.dialog-button.as-human{:href => "#step2"} підтримати
+        %a.dialog-button.as-human{href: "#step2"} підтримати
 
     .steps.step2.js-step2
       .title
@@ -80,7 +77,7 @@
       .title
         %p Стати бізнес-партнером
         .line
-      %form.business{:action => "https://docs.google.com/forms/d/1JvAX7NRsJpw1-alSUXDn3KawwGwpHSXCB1AT7gZD5tk/formResponse"}
+      %form.business{action: "https://docs.google.com/forms/d/1JvAX7NRsJpw1-alSUXDn3KawwGwpHSXCB1AT7gZD5tk/formResponse"}
         %span
           Для обговорення деталей просимо заповнити коротку анкету, і наш менеджер Ірина зв'яжеться з вами найближчим часом
           %br>/
@@ -138,9 +135,16 @@
           %li
             %span Призначення платежу:
             %b "Благодійний внесок"
-      .block.right.disabled
+      .block.right.form-donate
         %h5 Онлайн-платіж з банківської карти
-        %a.dialog-button.submit оплатити
+
+        = form_tag donate_url do
+          %input.required{name: 'amount', placeholder: 'Сума внеску', required: ""}/
+          %input{name: 'email', placeholder: 'email'}
+          %span
+            %img{alt: "required", src: "/assets/required.png"}>/
+            — поля обов’язкові для заповнення
+          %input.dialog-button.submit{ type: 'submit', value: 'оплатити' }
   .back
 
   %a.close{href: '#'}
