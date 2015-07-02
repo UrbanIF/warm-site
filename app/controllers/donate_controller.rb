@@ -47,7 +47,7 @@ class DonateController < ApplicationController
        public_key: Liqpay.config.public_key,
        amount: params[:amount].to_i,
        currency: 'UAH',
-       description: "donation from #{ params[:email] }",
+       description: "Dobrovilna pozhertva",
        language: 'ru',
        type: 'donate',
        order_id: order_id(request_id),
