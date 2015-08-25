@@ -1,12 +1,15 @@
-%section#info.info
-  %article.vision
-    %h3 Візія
-    %h5= @static_text.vision_title
-    %p= @static_text.vision_text.html_safe
-  %article.values
-    %h3 Цінності
-    = @static_text.values_text.html_safe
 
-  %article.tasks
-    %h3 Ролі
-    = @static_text.tasks_text.html_safe
+%section#info.info
+  - if @static_text.vision_text.present?
+    %article.vision
+      %h3 Візія
+      %h5= @static_text.vision_title
+      %p= @static_text.vision_text.html_safe
+  - if @static_text.values_text.present?
+    %article.values
+      %h3 Цінності
+      = @static_text.values_text.html_safe
+  - if @static_text.tasks_text.present?
+    %article.tasks
+      %h3 Ролі
+      = @static_text.tasks_text.html_safe

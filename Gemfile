@@ -51,7 +51,7 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem 'thin'
+  # gem 'thin'
 end
 group :production do
   gem 'unicorn'
