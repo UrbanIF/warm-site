@@ -122,6 +122,26 @@ end
   set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
+  namespace :assets do
+    desc "Precompile assets locally and then rsync to web servers"
+    task :sync, only: { primary: true } do
+      run_locally "bundle exec rake assets:precompile RAILS_ENV=#{rails_env};"
+
+      servers = find_servers roles: [:app], except: { :no_release => true }
+      servers.each do |server|
+
+        # sync compiled asets
+        run_locally "rsync -a --chmod=ug=rwX,o=rX ./public/assets/ #{user}@#{server}:#{shared_path}/tmp/;"
+        run "rm -rf #{shared_path}/assets"
+        # run "mkdir #{shared_path}/assets"
+        run "mv #{shared_path}/tmp #{shared_path}/assets"
+        # run "rm -rf #{shared_path}/tmp"
+      end
+
+      run_locally "rm -rf ./public/assets"
+    end
+  end
+
 # - for unicorn - #
 namespace :deploy do
   desc "Start application"
