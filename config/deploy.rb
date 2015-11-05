@@ -17,7 +17,7 @@ require 'bundler/capistrano'
 ## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
 ## следующие строки.
 
-after "deploy:update_code", :copy_database_config, :copy_application_config, :copy_secrets_config, :copy_db, :create_symlink_to_uploads #, :create_symlink_to_assets
+after "deploy:update_code", :copy_database_config, :copy_application_config, :copy_secrets_config, :copy_db, :create_symlink_to_uploads, :create_symlink_to_assets
 task :copy_database_config, roles => :app do
   db_config = "#{shared_path}/database.yml"
   run "cp #{db_config} #{release_path}/config/database.yml"
@@ -44,9 +44,10 @@ task :create_symlink_to_uploads, roles => :app do
 end
 
 
-# task :create_symlink_to_assets, roles => :app do
-#   run "ln -s #{shared_path}/assets/ #{release_path}/public/assets"
-# end
+
+task :create_symlink_to_assets, roles => :app do
+  run "ln -s #{shared_path}/assets/ #{release_path}/public/assets"
+end
 
 
 # В rails 3 по умолчанию включена функция assets pipelining,
