@@ -5,10 +5,10 @@
   .container
     .triangle
     .left
-      %h3 Місія:
-      %p створення нових можливостей самореалізації мешканців Івано-Франківська задля досягнення високого рівня якості життя в місті через більшу спроможність, довіру та амбітність
+      %h3= t('mission.title')
+      %p= t('mission.text')
     .right
-      %a.button.red.support-button{href: "#step1"} підтримати
+      %a.button.red.support-button{href: "#money-help"}= t('support')
 - if @static_text.present?
   = render 'main/info'
 

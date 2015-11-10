@@ -1,5 +1,5 @@
 - content_for :body_class, "news"
-- content_for :title, " - Новини"
+- content_for :title, " - #{t('title.news')}"
 %section.news-list
   - current_month = nil
   - @news.each do |key, news_array|

@@ -1,9 +1,9 @@
-- content_for :title, " - Партнери"
+- content_for :title, " - #{t('title.partners')}"
 
 =render '/partials/header_rating'
 %section.partners
   %h2
-    медіапартнери
+    = t('media_partners.title')
     %span><= @media_partners.count
   .list><
     - @media_partners.each do |media_partner|
@@ -11,4 +11,4 @@
         = image_tag media_partner.logo.url
 
   .buttons
-    %a.button.red.support-button{href: "#step1"} підтримати
+    %a.button.red.support-button{href: "#step1"}= t('support')

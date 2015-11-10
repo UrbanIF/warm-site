@@ -1,5 +1,5 @@
 - content_for :body_class, "faq"
-- content_for :title, " - Питання/Відповіді"
+- content_for :title, " - #{t('title.faq')}"
 %section.faq
   -if @faq.present?
     =@faq.source.html_safe

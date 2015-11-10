@@ -1,6 +1,6 @@
 %section.news
   %h2
-    новини проекту
+    = t('projects.news')
     %span>= total_news
   -news.each do |news|
     .news-item{ class: cycle('','','last') }><
@@ -11,4 +11,4 @@
       %time= I18n.l news.date
 
   .button-container
-    =link_to 'новини проекту', project_news_path(@project), { class:'button red' }
+    =link_to t('projects.news'), project_news_path(@project), { class:'button red' }

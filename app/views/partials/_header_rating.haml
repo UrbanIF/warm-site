@@ -1,17 +1,17 @@
 %section.header-image
-  %h1 Платформа «Тепле Місто»
-  %h2 Об’єднує людей і бізнеси, які підтримують ідеї та дії щодо сталого розвитку Івано-Франківська
-  %a.button.red.support-button{href: "#step1"} підтримати
+  %h1= t('rating.platform_title')
+  %h2= t('rating.platform_text')
+  %a.button.red.support-button{href: "#money-help"}= t('support')
   %h3
     %span.rating-link{style: "display:inline"}<
-      Рейтинг
+      = t('rating.title')
       .rating-overlay>
         .rating-overlay__text
-          %p.rating-overlay__first Сьогодні ініціативи Теплого Міста визнані одними із найбільш дієвих і прогресивних в Україні
-          %p.rating-overlay__second Про проекти середовища пишуть і говорять такі відомі видання і ресурси, як Inspired, UA Modna, Big Idea, Платформа, Українська правда, ТРК Україна
-          %p.rating-overlay__third Бізнеси, які підтримують дані ідеї і дії, безперечно, можна також вважати прогресивними. Таким чином, ми формуємо Рейтинг 50 найпрогресивніших компаній міста. В нашому рейтингу немає перших чи других: ми об’єднуємо соціально-відповідальні компанії, які прагнуть розвивати своє місто
-          = link_to 'Питання та відповіді про рейтинг', faq_path, {class: 'rating-overlay__link'}
-    Топ-50 найпрогресивніших компаній міста
+          %p.rating-overlay__first= t('rating.overlay.line1')
+          %p.rating-overlay__second= t('rating.overlay.line2')
+          %p.rating-overlay__third= t('rating.overlay.line3')
+          = link_to t('rating.overlay.qalink'), faq_path, {class: 'rating-overlay__link'}
+    = t('rating.top50')
   %ul.companies><
     -49.times do |n|
       -unless @partners[n].nil?
