@@ -1,9 +1,9 @@
 !!!
-%html{:lang => "en"}
+%html{lang: "en"}
   %head
-    %meta{:charset => "utf-8"}/
-    %title= "Тепле Місто #{yield(:title)}"
-    %link{:href => "//fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,cyrillic-ext", :rel => "stylesheet"}/
+    %meta{charset: "utf-8"}/
+    %title= "#{t('teple_misto')} #{yield(:title)}"
+    %link{href: "//fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,cyrillic-ext", rel: "stylesheet"}/
     = stylesheet_link_tag 'application'
     = favicon_link_tag 'favicon.png', rel: 'icon', type: 'image/png'
 
