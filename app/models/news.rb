@@ -33,12 +33,12 @@ class News < ActiveRecord::Base
 
   validates_presence_of :title, :short, :body
 
-  def title_on_mine
-    self[:title_on_mine].presence || self[:title]
+  def title_on_mine(lang = :uk)
+    title_on_mine_translations[lang].presence || title_translations[lang]
   end
 
-  def short_on_mine
-    self[:short_on_mine].presence || self[:short]
+  def short_on_mine(lang = :uk)
+    short_on_mine_translations[lang].presence || short_translations[lang]
   end
 
   validates_presence_of :slug
