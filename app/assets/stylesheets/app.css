@@ -1686,10 +1686,10 @@ section.news .button-container .button.red:before {
 .dialog-overlay .step2 .block.first, .dialog-overlay .step2c .block.first, .dialog-overlay .money-help .block.first {
 	width:19.6875em;
 }
-
+/*
 .dialog-overlay .step2 .block.second, .dialog-overlay .step2c .block.second, .dialog-overlay .money-help .block.second {
 	width:19.625em;
-}
+}*/
 
 .dialog-overlay .step2 .block.last, .dialog-overlay .step2c .block.last, .dialog-overlay .money-help .block.last {
 	width:16.5625em;
@@ -1720,7 +1720,8 @@ section.news .button-container .button.red:before {
 }
 
 .dialog-overlay .money-help {
-	width:48.75em;
+	width:20.125em;
+	margin: 0 auto;
 }
 
 .dialog-overlay .money-help .block {

@@ -6,8 +6,8 @@
     .news-item{ class: cycle('','','last') }><
       = image_tag(news.image.thumb.url)
       %h4
-        = link_to news.title_on_mine, news
-      %p= news.short_on_mine
+        = link_to news.title_on_mine(:uk), news
+      %p= news.short_on_mine(:uk)
       %time= I18n.l news.date
 
   .button-container

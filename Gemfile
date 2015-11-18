@@ -31,7 +31,7 @@ gem 'simple-navigation'
 gem 'kaminari'
 gem 'faker'
 gem 'cells'
-gem 'therubyracer', :platform=>:ruby
+
 gem 'mini_magick'
 gem "browserify-rails", "~> 0.4"
 gem "rails_admin_map_field", github: "BartlomiejSkwira/rails_admin_map_field"

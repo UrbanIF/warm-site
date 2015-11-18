@@ -102,39 +102,19 @@
 
     .steps.money-help.js-money-help
       .title
-        %p Надати доброчинну допомогу
+        %p= t('overlay.donate.title')
         .line
-      .block.left.rax
-        %h5 Переказ на розрахунковий рахунок
-        %ul
-          %li
-            %span Отримувач платежу:
-            %b Благодійна організація «Благодійний фонд "Тепле місто"»
-          %li
-            %span Код ЄДРПОУ:
-            %b 39377102
-          %li
-            %span Рахунок:
-            %b 260025 3039 0500
-          %li
-            %span Назва банку:
-            %b ПАТ "УкрСиббанк"
-          %li
-            %span МФО:
-            %b 351005
-          %li
-            %span Призначення платежу:
-            %b "Благодійна пожертва"
-      .block.right.form-donate
-        %h5 Онлайн-платіж з банківської карти
+      .block.form-donate
+        %h5= t('overlay.donate.online')
 
         = form_tag donate_url do
-          %input.required{name: 'amount', placeholder: 'Сума внеску', required: ""}/
+          %input.required{name: 'amount', placeholder: t('overlay.donate.amount'), required: ""}/
           %input{name: 'email', placeholder: 'email'}
           %span
             %img{alt: "required", src: "/assets/required.png"}>/
-            — поля обов’язкові для заповнення
-          %input.dialog-button.submit{ type: 'submit', value: 'оплатити' }
+            —
+            = t('overlay.donate.required')
+          %input.dialog-button.submit{ type: 'submit', value: t('overlay.donate.donate') }
   .back
 
   %a.close{href: '#'}
