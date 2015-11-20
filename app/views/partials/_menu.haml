@@ -6,5 +6,6 @@
   %nav
     = render_navigation
   %ul.languages
-    %li
-      %a.active{href: "#"} ua
+    - lang_switcher do |locale, name, link|
+      %li
+        %a{href: link, class: I18n.locale == locale ? 'active': ''}= name
