@@ -3,7 +3,6 @@ class CreateDonations < ActiveRecord::Migration
     create_table :donations do |t|
       t.string :email
       t.string :amount
-      t.string :amount
       t.string :paid_sum
       t.datetime :paid_at
       t.string :paid_status
