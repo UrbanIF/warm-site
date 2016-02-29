@@ -47,5 +47,6 @@ en:
       title: Donate
       online: On-line transfer
       amount: Amount
+      name: "Name, Surname"
       donate: Donate
       required: "required fields"

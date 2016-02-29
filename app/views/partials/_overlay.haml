@@ -109,6 +109,7 @@
 
         = form_tag donate_url do
           %input.required{name: 'amount', placeholder: t('overlay.donate.amount'), required: ""}/
+          %input.required{name: 'name', placeholder: t('overlay.donate.name'), required: ""}/
           %input{name: 'email', placeholder: 'email'}
           %span
             %img{alt: "required", src: "/assets/required.png"}>/
