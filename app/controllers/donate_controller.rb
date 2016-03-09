@@ -47,7 +47,7 @@ class DonateController < ApplicationController
       version: 3,
       public_key: Liqpay.config.public_key,
       amount: params[:amount].to_i,
-      currency: I18n.locale == :en ? 'USD' : 'UAH',
+      currency: 'UAH',
       description: "Dobrovilna pozhertva",
       language: I18n.locale == :en ? 'en' : 'ru',
       type: 'donate',
