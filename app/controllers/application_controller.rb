@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale(locale = I18n.default_locale)
     I18n.locale = params[:locale] || locale
+    @advert_form = AdvertForm.new
   end
 
   def default_url_options(options={})

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+
+
   get 'markers', to: 'main#markers'
 
   post 'donate', to: 'donate#index', as: :donate
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+
+  resource :advert_form, only: :create
   scope (":locale"), locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'main#index'
     resources :news, only: [:index, :show]

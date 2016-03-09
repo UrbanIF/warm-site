@@ -9,5 +9,6 @@
 %section.project.user-text
   = @project.body.html_safe
   = render '/partials/share'
+  = render 'partials/advert_form' if @project.show_form?
 
-= render 'news', news: @project.news, total_news: @project.news.count
+= render 'news', news: @project.news, total_news: @project.news.count if @project.news.count > 0

@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: advert_forms
+#
+#  id            :integer          not null, primary key
+#  company_title :string(255)
+#  address       :string(255)
+#  advice        :boolean
+#  layout        :boolean
+#  name          :string(255)
+#  phone         :string(255)
+#  email         :string(255)
+#  photo         :string(255)
+#  logo          :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_title: MyString
+  address: MyString
+  advice: false
+  layout: false
+  name: MyString
+  phone: MyString
+  email: MyString
+  photo: MyString
+  logo: MyString
+
+two:
+  company_title: MyString
+  address: MyString
+  advice: false
+  layout: false
+  name: MyString
+  phone: MyString
+  email: MyString
+  photo: MyString
+  logo: MyString

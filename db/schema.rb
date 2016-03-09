@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229205842) do
+ActiveRecord::Schema.define(version: 20160308123838) do
+
+  create_table "advert_forms", force: true do |t|
+    t.string   "company_title"
+    t.string   "address"
+    t.boolean  "advice"
+    t.boolean  "layout"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "photo"
+    t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -198,9 +212,10 @@ ActiveRecord::Schema.define(version: 20160229205842) do
     t.integer  "weight",     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug",       default: "", null: false
+    t.string   "slug",       default: "",    null: false
     t.string   "big_image"
     t.string   "file_link"
+    t.boolean  "show_form",  default: false
   end
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true

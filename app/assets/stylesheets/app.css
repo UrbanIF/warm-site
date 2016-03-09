@@ -760,6 +760,9 @@ section {
 section.projects h2 {
 	margin-right:1.05263%;
 }
+section.success{
+	min-height: 400px;
+}
 
 section.projects h2, section.info h2, section.news h2, section.partners h2 {
 	float:left;
@@ -777,12 +780,12 @@ section.projects h2:last-child, section.info h2:last-child, section.news h2:last
 	margin-right:0;
 }
 
-section.projects {
+section.projects, section.success {
 	margin-left:auto;
 	margin-right:auto;
 }
 
-section.projects, section.news, section.partners {
+section.projects, section.news, section.partners, section.success {
 	max-width:59.375em;
 }
 
@@ -1601,13 +1604,21 @@ section.news .button-container .button.red:before {
 	background-size:cover;
 }
 
-.dialog-overlay .steps input {
+.dialog-overlay .steps input,
+.simple_form input[type=text],
+.simple_form input[type=tel],
+.simple_form input[type=email]{
 	width:19.28571em;
 	height:2.57143em;
 	margin:.07143em;
 }
 
-.dialog-overlay .steps input, .dialog-overlay .steps textarea {
+.dialog-overlay .steps input,
+.dialog-overlay .steps textarea,
+.simple_form input[type=text],
+.simple_form input[type=tel],
+.simple_form input[type=email],
+.simple_form textarea {
 	border:none;
 	background:#f1f1f1;
 	color:#242424;
@@ -1616,21 +1627,74 @@ section.news .button-container .button.red:before {
 	padding:.71429em;
 }
 
-.dialog-overlay .steps input.required, .dialog-overlay .steps textarea.required {
+.dialog-overlay .steps input.required,
+.dialog-overlay .steps textarea.required,
+.simple_form input[type=text].required,
+.simple_form input[type=tel].required,
+.simple_form input[type=email].required,
+.simple_form textarea.required {
 	background:#f1f1f1 url('/assets/required.png') no-repeat 95% center;
 }
+.simple_form input[type=file]{
+	color: #7b7b7b;
+}
+.advert_form {
+	margin: 0 auto;
+	width: 500px;
+}
+.simple_form div.input {
+	padding-bottom: 1.8em;
+}
 
-.dialog-overlay .steps textarea {
+.simple_form .booleans div.input {
+	padding-bottom: 0;
+}
+.simple_form .booleans {padding-bottom: 1em}
+.simple_form .booleans > label{
+	width: auto;
+	margin-bottom: 0.5em;
+}
+.simple_form .submit_item {
+	width: 220px;
+	margin: 0 auto;
+}
+.simple_form span {
+	color:#7b7b7b;
+	font-size:.75em;
+	display:block;
+	margin:0 0 .41667em;
+}
+.simple_form span.error {
+	padding-left: 150px;
+	color: #f55;
+}
+.simple_form span.hint {
+	padding-left: 150px;
+}
+.dialog-overlay .steps textarea,
+.simple_form textarea {
 	width:39.28571em;
 	height:4.71429em;
 	margin:2.14286em 0;
 }
+.simple_form label {
+	display: inline-block;
 
+	color: #7b7b7b;
+	width: 150px;
+}
+.simple_form abbr {display: none}
 .dialog-overlay .steps ::-webkit-input-placeholder {
 	color:#7b7b7b;
 	font-size:.75em;
 }
-
+.simple_form label.boolean {
+	margin-left: 150px;
+	width: 300px;
+}
+.simple_form label.boolean input {
+	margin-right: 10px;
+}
 .dialog-overlay .steps :-moz-placeholder, .dialog-overlay .steps ::-moz-placeholder {
 	color:#7b7b7b;
 	opacity:1;
@@ -1642,7 +1706,8 @@ section.news .button-container .button.red:before {
 	font-size:.75em;
 }
 
-.dialog-overlay .steps .dialog-button {
+.dialog-overlay .steps .dialog-button,
+.simple_form .btn {
 	text-decoration:none;
 	background:#fff;
 	border:.14286em solid #ffd33a;
@@ -1657,7 +1722,8 @@ section.news .button-container .button.red:before {
 	line-height:1em;
 }
 
-.dialog-overlay .steps .dialog-button:hover {
+.dialog-overlay .steps .dialog-button:hover,
+.simple_form .btn:hover {
 	border:.14286em solid #ed6421;
 }
 
@@ -1869,23 +1935,23 @@ body.news, body.faq, body.publications {
 	background:#fff;
 }
 
-body.news .contacts, body.faq .contacts, body.publications .contacts {
+body.news .contacts, body.faq .contacts, body.publications .contacts, body.success .contacts {
 	border-top:1px solid #e6e6e6;
 }
 
-body.news header, body.faq header, body.publications header {
+body.news header, body.faq header, body.publications header, body.success header {
 	background-color:rgba(0, 0, 0, .8);
 	position:static;
 }
 
-section.news-list, section.publications {
+section.news-list, section.publications, section.success {
 	max-width:59.375em;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:4.375em;
 }
 
-section.news-list:after, section.publications:after {
+section.news-list:after, section.publications:after, section.success:after {
 	content:"";
 	display:table;
 	clear:both;
@@ -2157,7 +2223,7 @@ body.project section.project:after {
 }
 
 .user-text {
-	font-family:OpenSans;
+	font-family:"Open Sans", sans-serif;;
 	color:#4a4a4a;
 	line-height:1.43;
 	font-weight:400;

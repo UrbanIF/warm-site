@@ -59,6 +59,7 @@ Marker::Translation
 MarkerGroup
 MarkerGroup::Translation
 MarkerPhoto
+AdvertForm
 )
 
   [Publication, StaticPage, Faq].each do |_model|
@@ -139,6 +140,9 @@ MarkerPhoto
     end
     field :is_show, :boolean do
       default_value true
+    end
+    field :show_form, :boolean do
+      default_value false
     end
     configure :translations, :globalize_tabs
     edit do

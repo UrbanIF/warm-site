@@ -1,0 +1,21 @@
+.advert_form
+  %h2 Форма замовлення вивіски
+
+  = simple_form_for @advert_form, url: advert_form_path(back_url: request.original_url), class: 'form' do |f|
+    =f.input :company_title
+    =f.input :address
+    =f.input :name
+    =f.input :phone
+    =f.input :email
+    =f.input :photo
+    =f.input :logo
+    .booleans
+      %label
+        Ви плануєте замовити макет нової вивіски чи хочете отримати консультацію поточного вигляду фасаду будинку вашої компанії?
+      =f.input :advice, input_html: { checked: true }
+      =f.input :layout
+    .submit_item
+      %span
+        %img{alt: "required", src: "/assets/required.png"}>/
+        — поля обов’язкові для заповнення
+      = f.button :submit, value: 'Замовити'
