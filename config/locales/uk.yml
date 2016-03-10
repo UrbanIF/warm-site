@@ -50,3 +50,6 @@ uk:
       name: "Ім'я, прізвище"
       donate: оплатити
       required: "поля обов’язкові для заповнення"
+  errors:
+    messages:
+      extension_white_list_error: Невірний формат файлу
