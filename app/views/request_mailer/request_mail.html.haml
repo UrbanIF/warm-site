@@ -1,8 +1,28 @@
 %ul
-  %li= @advert_form.company_title
-  %li= @advert_form.address
-  %li= @advert_form.name
-  %li= @advert_form.phone
-  %li= @advert_form.email
-  %li= link_to @advert_form.photo.url, "#{Rails.application.secrets.domain_name}#{@advert_form.photo.url}"
-  %li= link_to @advert_form.logo.url, "#{Rails.application.secrets.domain_name}#{@advert_form.logo.url}"
+  %li
+    Назва компанії:
+    = @advert_form.company_title
+  %li
+    Адреса:
+    = @advert_form.address
+  %li
+    Ім’я:
+    = @advert_form.name
+  %li
+    Телефон:
+    = @advert_form.phone
+  %li
+    email:
+    = @advert_form.email
+  %li
+    Фото фасаду:
+    = link_to @advert_form.photo.url, "#{Rails.application.secrets.domain_name}#{@advert_form.photo.url}"
+  %li
+    Логотип:
+    = link_to @advert_form.logo.url, "#{Rails.application.secrets.domain_name}#{@advert_form.logo.url}"
+  %li
+    Замовити макет:
+    = @advert_form.layout ? "так" : "ні"
+  %li
+    Отримати консультацію:
+    = @advert_form.advice ? "так" : "ні"

@@ -1,7 +1,18 @@
+Назва компанії:
 = @advert_form.company_title
+Адреса:
 = @advert_form.address
+Ім’я:
 = @advert_form.name
+Телефон:
 = @advert_form.phone
+email:
 = @advert_form.email
-= @advert_form.photo.url
-= @advert_form.logo.url
+Фото фасаду:
+= "#{Rails.application.secrets.domain_name}#{@advert_form.photo.url}"
+Логотип:
+= "#{Rails.application.secrets.domain_name}#{@advert_form.logo.url}"
+Замовити макет:
+= @advert_form.layout ? "так" : "ні"
+Отримати консультацію:
+= @advert_form.advice ? "так" : "ні"
