@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'markers', to: 'main#markers'
 
   post 'donate', to: 'donate#index', as: :donate
-  get 'donate/callback/:id', to: 'donate#callback', as: :donate_callback
+  post 'donate/callback/:id', to: 'donate#callback', as: :donate_callback
 
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
