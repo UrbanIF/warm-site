@@ -60,6 +60,7 @@ MarkerGroup
 MarkerGroup::Translation
 MarkerPhoto
 AdvertForm
+Donation
 )
 
   [Publication, StaticPage, Faq].each do |_model|
