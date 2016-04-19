@@ -1,4 +1,5 @@
 class DonateController < ApplicationController
+  skip_before_filter :verify_authenticity_token, only: :callback
 
   def index
     expires_now
@@ -7,7 +8,6 @@ class DonateController < ApplicationController
       url = "https://www.liqpay.com/api/checkout"
       url += "?data=#{ URI::encode( base ) }"
       url += "&signature=#{  signature( base ) }"
-
       # render text: url
       redirect_to url
     end
@@ -25,6 +25,7 @@ class DonateController < ApplicationController
       donation.paid_transaction_id = data['transaction_id']
       donation.save
     end
+    logger.fatal "invalid signature: #{params[:signature]}, #{params[:data]}"
     render nothing: true
   end
 
@@ -79,7 +80,7 @@ class DonateController < ApplicationController
     #  urlsafe_encode64(str)
     key = Liqpay.config.private_key + data + Liqpay.config.private_key
     key = Digest::SHA1.digest( key )
-    [key].pack("m")
+    [key].pack("m").strip
     #  Base64.urlsafe_encode64( key )
   end
 end
