@@ -13,7 +13,7 @@
           = link_to t('rating.overlay.qalink'), faq_path, {class: 'rating-overlay__link'}
     = t('rating.top50')
   %ul.companies><
-    -49.times do |n|
+    -59.times do |n|
       -unless @partners[n].nil?
         - if @partners[n].video.present?
           .preload{ style: "background: url(http://img.youtube.com/vi/#{@partners[n].video}/default.jpg) no-repeat -9999px -9999px;position:absolute;" }
@@ -41,9 +41,9 @@
   .progress
     .desc<
       = @partners.count
-      \/50
+      \/60
     .progress-bar
-      -width = (890 / 50 * @partners.count) / 16
+      -width = (890 / 60 * @partners.count) / 16
       .filled{ data: { width: "#{width}em" } }
   .socials
     %a{href: "https://twitter.com/WarmCityIF"}
