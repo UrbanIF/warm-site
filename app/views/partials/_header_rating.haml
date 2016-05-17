@@ -4,13 +4,6 @@
   %a.button.red.support-button{href: "#money-help"}= t('support_button')
   %h3
     %span.rating-link{style: "display:inline"}<
-      = t('rating.title')
-      .rating-overlay>
-        .rating-overlay__text
-          %p.rating-overlay__first= t('rating.overlay.line1')
-          %p.rating-overlay__second= t('rating.overlay.line2')
-          %p.rating-overlay__third= t('rating.overlay.line3')
-          = link_to t('rating.overlay.qalink'), faq_path, {class: 'rating-overlay__link'}
     = t('rating.top50')
   %ul.companies><
     -59.times do |n|
