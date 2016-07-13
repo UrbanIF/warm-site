@@ -1,0 +1,32 @@
+- content_for :body_class, "faq"
+- content_for :title, " - #{t('title.faq')}"
+%section.faq.dialog-overlay.center
+  %h5
+    Дякуємо! ви хочете переказати
+    = @donation.amount
+    грн на потреби "Теплого Міста".
+  %span Оберіть платіжну систему для завершення операції:
+  .steps.buttons-container
+    .buttons
+      = link_to "Liqpay", @liqpay_url, class: 'dialog-button submit'
+
+    .buttons
+
+
+      %form{action: @wayforpay_url, method: "POST"}
+        = hidden_field_tag :merchantAccount, @wayforpay_params[:merchantAccount]
+        = hidden_field_tag :merchantDomainName, @wayforpay_params[:merchantDomainName]
+        = hidden_field_tag :merchantTransactionSecureType, @wayforpay_params[:merchantTransactionSecureType]
+        = hidden_field_tag :merchantAuthType, @wayforpay_params[:merchantAuthType]
+        = hidden_field_tag :orderReference, @wayforpay_params[:orderReference]
+        = hidden_field_tag :orderDate, @wayforpay_params[:orderDate]
+        = hidden_field_tag :amount, @wayforpay_params[:amount]
+        = hidden_field_tag :currency, @wayforpay_params[:currency]
+        = hidden_field_tag "productName[]", @wayforpay_params[:productName][0]
+        = hidden_field_tag "productPrice[]", @wayforpay_params[:productPrice][0]
+        = hidden_field_tag "productCount[]", @wayforpay_params[:productCount][0]
+        = hidden_field_tag :merchantSignature, @wayforpay_params[:merchantSignature]
+        = hidden_field_tag :returnUrl, @wayforpay_params[:returnUrl]
+        = hidden_field_tag :serviceUrl, @wayforpay_params[:serviceUrl]
+
+        %button.dialog-button.submit{type: "submit"} Wayforpay

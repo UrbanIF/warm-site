@@ -80,6 +80,7 @@ GEM
     browserify-rails (0.5.1)
       sprockets (~> 2.0)
     builder (3.2.2)
+    byebug (8.2.2)
     capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
@@ -298,6 +299,7 @@ DEPENDENCIES
   binding_of_caller
   bower-rails (~> 0.7.3)
   browserify-rails (~> 0.4)
+  byebug
   capistrano (~> 2.15.5)
   carrierwave
   cells
