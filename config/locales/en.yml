@@ -7,6 +7,7 @@ en:
     partners: 'Partners'
     news: 'News'
     publications: 'Publications'
+    donation: 'Donation'
   menu:
     projects_list: 'Projects'
     about: 'About Us'
@@ -42,6 +43,10 @@ en:
     news: 'Project news'
   media_partners:
     title: 'media partners'
+  donate:
+    show:
+      select: 'Select a payment system to complete the operation:'
+
   overlay:
     donate:
       title: Donate

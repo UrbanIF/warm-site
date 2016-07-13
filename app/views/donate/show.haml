@@ -1,18 +1,10 @@
 - content_for :body_class, "faq"
-- content_for :title, " - #{t('title.faq')}"
+- content_for :title, " - #{t('title.donation')}"
 %section.faq.dialog-overlay.center
-  %h5
-    Дякуємо! ви хочете переказати
-    = @donation.amount
-    грн на потреби "Теплого Міста".
-  %span Оберіть платіжну систему для завершення операції:
+
+  %span= t('.select')
   .steps.buttons-container
     .buttons
-      = link_to "Liqpay", @liqpay_url, class: 'dialog-button submit'
-
-    .buttons
-
-
       %form{action: @wayforpay_url, method: "POST"}
         = hidden_field_tag :merchantAccount, @wayforpay_params[:merchantAccount]
         = hidden_field_tag :merchantDomainName, @wayforpay_params[:merchantDomainName]
@@ -30,3 +22,6 @@
         = hidden_field_tag :serviceUrl, @wayforpay_params[:serviceUrl]
 
         %button.dialog-button.submit{type: "submit"} Wayforpay
+
+    .buttons
+      = link_to "Liqpay", @liqpay_url, class: 'dialog-button submit'
