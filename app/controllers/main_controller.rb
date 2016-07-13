@@ -1,4 +1,5 @@
 class MainController < ApplicationController
+  skip_before_filter :verify_authenticity_token, only: :index
   def index
     @total_news = News.global.count
     @news = News.for_main
