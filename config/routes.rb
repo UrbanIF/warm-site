@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :advert_form, only: :create
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'main#index'
+    post '/', to: 'main#index'
     resources :news, only: [:index, :show]
     resources :publications, only: [:index]
     get 'projects/:slug', to: 'projects#show', as: :project

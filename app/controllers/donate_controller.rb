@@ -43,9 +43,11 @@ class DonateController < ApplicationController
     donation.paid_order_id = data['orderReference']
     donation.success = true if data['transactionStatus'] == 'Approved'
 
+    donation.save
+
     resp = { orderReference: data['orderReference'],
              status: 'accept',
-             time: Time.current.to_i,
+             time: Time.current.to_i
            }
 
     resp[:signature] = create_hmac_md5(resp.values.join(';'))
